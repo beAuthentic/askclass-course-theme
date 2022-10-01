@@ -1,5 +1,5 @@
 # AskClass News Theme
-[![Build]][Build Link] [![CodeQL]][CodeQL Link]
+[![Deploy Jekyll]][Deploy Jekyll Link] [![Build]][Build Link] [![CodeQL]][CodeQL Link]
 
 Simple responsive Jekyll theme for a course syllabus.
 
@@ -45,7 +45,12 @@ The theme is available as open source under the terms of the [MPL-2.0 License].
 [MPL-2.0 License]: https://opensource.org/licenses/MPL-2.0
 [Contributor Covenant]: http://contributor-covenant.org
 [Card Colors]: https://acn.askclass.com/2022/06/18/card-colors
+
+[Deploy Jekyll]: https://github.com/beAuthentic/askclass-course-theme/actions/workflows/pages.yml/badge.svg
+[Deploy Jekyll Link]: https://github.com/beAuthentic/askclass-course-theme/actions/workflows/pages.yml
+
 [Build]: https://github.com/beAuthentic/askclass-course-theme/actions/workflows/gem-push.yml/badge.svg
 [Build Link]: https://github.com/beAuthentic/askclass-course-theme/actions/workflows/gem-push.yml
+
 [CodeQL]: https://github.com/beAuthentic/askclass-course-theme/actions/workflows/codeql-analysis.yml/badge.svg
 [CodeQL Link]: https://github.com/beAuthentic/askclass-course-theme/actions/workflows/codeql-analysis.yml
