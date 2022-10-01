@@ -5,13 +5,20 @@ Simple responsive Jekyll theme for a course syllabus.
 
 ## Installation
 
+Starting fresh:
 ```sh
-# If starting fresh add this
 $ echo 'source "https://rubygems.org"' > Gemfile
+$ echo 'theme: askclass-course-theme/ > _config.yml
+$ bundle
+$ jekyll serve
+```
 
+Copy `index.html`, `pwabuilder-sw.jq`, `_data`, and `content` to the root dir.
+
+Existing project:
+```sh
 $ echo 'gem "askclass-course-theme"' >> Gemfile
 $ sed -i '1 s/^/theme: askclass-course-theme\n/' _config.yml
-$ bundle
 ```
 
 ----
