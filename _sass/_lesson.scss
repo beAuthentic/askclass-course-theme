@@ -1,0 +1,35 @@
+samp {
+  filter: blur(4px);
+  font-family: var(--specialFont);
+  font-size: 18px;
+  cursor: pointer;
+  &.on {
+    filter: none;
+    color: var(--secondaryColor);
+  }
+}
+
+.lesson-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 7px 5px 3px 5px;
+  margin: 0 5px;
+  background-color: var(--fgColor);
+  font-family: var(--fontText);
+  color: var(--bgColor);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+
+  &.current {
+    background-color: var(--secondaryColor);
+  }
+}
+
+a.lesson-number{
+  color: var(--fgColor);
+  background-color: var(--linkColor);
+}

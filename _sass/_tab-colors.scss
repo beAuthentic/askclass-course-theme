@@ -1,0 +1,81 @@
+$color-1: #005F73;
+$color-2: #03989E;
+$color-3: #CA6702;
+$color-4: #EE9B00;
+$color-5: #355691;
+$color-6: #4073A0;
+$color-7: #3C5A14;
+$color-8: #598B2C;
+$color-9: #9B2226;
+$color-10: #B18FCF;
+
+html {
+  --c1: #{$color-1};
+  --c2: #{$color-2};
+  --c3: #{$color-3};
+  --c4: #{$color-4};
+  --c5: #{$color-5};
+  --c6: #{$color-6};
+  --c7: #{$color-7};
+  --c8: #{$color-8};
+  --c9: #{$color-9};
+  --c10: #{$color-10};
+}
+
+@mixin paint($color) {
+  background-image: linear-gradient(225deg, $color 50%, transparent 50%);
+  border-top-color: $color;
+  .control, .header {
+    a {
+      color: $color;
+    }
+    .button {
+      background-color: $color;
+    }
+  }
+  .body {
+    h3, h3 a {
+      color: $color;
+    }
+    code, .due {
+      color: white;
+      background-color: $color;
+    }
+  }
+  &.current {
+    .control {
+      background-color: $color;
+    }
+  }
+}
+
+.c1 {
+  @include paint($color-1);
+}
+.c2 {
+  @include paint($color-2);
+}
+.c3 {
+  @include paint($color-3);
+}
+.c4 {
+  @include paint($color-4);
+}
+.c5 {
+  @include paint($color-5);
+}
+.c6 {
+  @include paint($color-6);
+}
+.c7 {
+  @include paint($color-7);
+}
+.c8 {
+  @include paint($color-8);
+}
+.c9 {
+  @include paint($color-9);
+}
+.c10 {
+  @include paint($color-10);
+}

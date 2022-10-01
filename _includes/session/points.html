@@ -1,0 +1,11 @@
+{%- if session_data.type == 'Assignment' -%}
+<pre>
+{%- if session_data.points -%}
+Points: {{ session_data.points }}
+{%- endif -%}
+
+{%- if session_data.due %}
+Due: {{ session_data.due | date: '%B %d, %Y' }}
+{%- endif -%}
+</pre>
+{%- endif -%}

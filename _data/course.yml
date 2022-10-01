@@ -1,0 +1,6 @@
+id: 'AC-101'
+session_tag: 'Session'
+
+segments:
+  - week-01
+  - week-02

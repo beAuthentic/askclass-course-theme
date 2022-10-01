@@ -1,0 +1,46 @@
+session-01:
+  segment: 'week-01'
+  title: 'Syllabus & Course Overview'
+  icon: web_stories
+  header: 'Session 1'
+  sequence: 1
+  url: 'session-01'
+  videos: [ 'NoWbwykidu0' ]
+
+session-02:
+  segment: 'week-01'
+  title: "AskClass Course Theme Intro"
+  icon: web_stories
+  header: 'Session 2'
+  sequence: 2
+  url: 'session-02'
+
+assignment-01:
+  segment: 'week-01'
+  title: "Create GitHub Page Using AskClass Course Theme"
+  type: 'Assignment'
+  icon: create
+  header: 'Assignment'
+  sequence: A
+  url: 'assignment-01'
+  due: 2022-10-10
+  points: 30
+
+session-03:
+  segment: 'week-02'
+  title: "Formatting Content"
+  icon: web_stories
+  header: 'Session 3'
+  sequence: 3
+  url: 'session-03'
+
+quiz-01:
+  segment: 'week-02'
+  title: "Seek Knowledge & Gain Wisdom"
+  type: 'Quiz'
+  icon: quiz
+  header: 'Quiz'
+  sequence: Q
+  url: 'quiz-01'
+  due: 2022-10-17
+  points: 40

@@ -1,0 +1,17 @@
+{% assign segment = page.id | split: '/' | last %}
+{% assign info = site.data.syllabus[segment] %}
+
+<!doctype html>
+<html lang="en">
+  {% include header.html %}
+  <body>
+    {% include logo.html size=50 title=site.data.course.id %}
+    {% include segment/header.html info=info %}
+
+    {% include segment/index.html info=info %}
+
+    {{ content }}
+
+    {% include segment/nav.html segment=segment %}
+  </body>
+</html>

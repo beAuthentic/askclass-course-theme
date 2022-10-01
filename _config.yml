@@ -1,0 +1,96 @@
+# Custom fields
+title: "AskClass Course Theme"
+description: >
+  Organize your analog or digital course using this template
+  to make the syllabus and content easy to read and mobile.
+
+acc:
+  date_format: "%b %d, %y"
+  short_name: "AC Course"
+  color:
+    theme: "#ffc100"
+    bg: "#222"
+  url: "https://acc.askclass.com"
+  categories:
+    - education
+  social:
+    twitter: "askclass_com"
+  logo:
+    image: "logo-icon.svg"
+    size: 70
+    height: 70
+    alt_image: "logo.svg"
+    alt_size: 200
+    sizes: [ 48, 96, 144, 192, 300, 512 ]
+  meta:
+    apple_icon: "logo-300.png"
+    og_image: "logo-square-512.png"
+    shortcut:
+      favicon: "favicon.ico"
+      type: "image/png"
+      image: "logo-96.png"
+    keywords: >
+      edtech,
+      education,
+      technology,
+      learning,
+      teaching,
+      student,
+      educator,
+      university
+  footer:
+    - icon: "copyright"
+      href: "https://askclass.com"
+      text: "AskClass"
+    - icon: "newspaper"
+      href: "https://news.askclass.com"
+      text: "News"
+    - icon: "toys"
+      href: "https://app.askclass.com"
+      text: "Icebreakers"
+  # Donot change the below (will figure something out later)
+  font_families:
+    - Teko
+    - Open+Sans
+    - Josefin+Sans
+    - Share+Tech+Mono
+    - Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200
+
+collections_dir: content
+collections:
+  session:
+    output: true
+  segment:
+    output: true
+
+ignore_theme_config: false
+excerpt_separator: "<!--more-->"
+permalink: /:year/:month/:day/:title
+
+defaults:
+  - scope:
+      type: "session"
+    values:
+      layout: "session"
+  - scope:
+      type: "segment"
+    values:
+      layout: "segment"
+
+sass:
+  style: compact
+
+include:
+  - index.html
+  - 404.html
+  - pwabuilder-sw.js
+  - content
+
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - askclass-course-theme.gemspec
+  - CNAME
+  - runme.sh
+

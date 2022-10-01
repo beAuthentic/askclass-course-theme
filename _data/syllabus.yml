@@ -1,0 +1,20 @@
+week-01:
+  title: 'Week 1'
+  segment: ['week', 1]
+  begin: 2022-10-03
+  end: 2022-10-07
+  theme: c1
+  items:
+    - session-01
+    - session-02
+    - assignment-01
+
+week-02:
+  title: "Week 2"
+  segment: ['week', 2]
+  begin: 2022-10-10
+  end: 2022-10-17
+  theme: c3
+  items:
+    - session-03
+    - quiz-01

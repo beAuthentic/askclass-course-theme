@@ -1,0 +1,5 @@
+{% for v in include.videos %}
+  {% include session/youtube.html id=v %}
+  {% assign _size = videos | size %}
+  {% if forloop.index != _size %}<hr />{% endif %}
+{% endfor %}

@@ -1,0 +1,224 @@
+$font-main: 'Open Sans', sans-serif;
+$font-secondary: 'Teko', sans-serif;
+$font-special: 'Josefin Sans', sans-serif;
+$font-mono: 'Share Tech Mono', monospace;
+$color-primary: aliceblue;
+$color-secondary: skyblue;
+$color-tertiary: #2cdd88;
+$color-bg: #222;
+$color-fg: ivory;
+$color-dark: gray;
+$color-link: deeppink;
+$color-theme: #ffc100;
+$content-width: 600px;
+
+html {
+  --specialFont: #{$font-special};
+  --mainFont: #{$font-main};
+  --secondaryFont: #{$font-secondary};
+  --monoFont: #{$font-mono};
+  --primaryColor: #{$color-primary};
+  --secondaryColor: #{$color-secondary};
+  --linkColor: #{$color-link};
+  --bgColor: #{$color-bg};
+  --fgColor: #{$color-fg};
+  --darkColor: #{$color-dark};
+  --contentWidth: #{$content-width};
+  --themeColor: #{$color-theme};
+  --tertiaryColor: #{$color-tertiary};
+}
+
+body {
+  font-family: $font-main;
+  font-size: 17px;
+  line-height: 1.6;
+  background-color: $color-bg;
+  color: $color-fg;
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 6px;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}
+
+hr {
+  width: 300px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  border-color: $color-bg;
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-secondary;
+  font-weight: normal;
+  color: $color-secondary;
+  line-height: 1;
+}
+
+h1 { font-size: 2.5em }
+h2 { font-size: 2em }
+h3 { font-size: 1.7em }
+h4 { font-size: 1.4em }
+h5 { font-size: 1.2em }
+h6 { font-size: 1em }
+
+.special {
+  font-family: $font-special;
+  text-align: center;
+  color: $color-primary;
+  margin: 10px 0 5px 0;
+}
+
+code, pre {
+  font-family: $font-mono;
+}
+
+code {
+  white-space: pre-wrap;
+  color: $color-secondary;
+  &.rounded {
+    border-radius: 5px;
+    margin: 0 3px;
+    padding: 2px 5px;
+  }
+}
+
+pre {
+  background: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.05));
+  padding: 10px;
+  code {
+    color: inherit;
+  }
+}
+
+sub, sup {
+  font-size: small;
+}
+sup {
+  vertical-align: 6px;
+}
+sub {
+  vertical-align: 0px;
+}
+
+.md-18 { font-size: 18px; }
+.md-24 { font-size: 24px; }
+.md-36 { font-size: 36px; }
+.md-48 { font-size: 48px; }
+.md-disabled { color: rgba(0,0,0,0.6); }
+
+.buttons {
+  margin-bottom: 1em;
+  a {
+    text-decoration: none;
+    color: yellowgreen;
+  }
+}
+
+@mixin margin-top() {
+  margin-top: 100px;
+}
+
+@mixin align-middle() {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
+  img {
+    margin-right: 5px;
+  }
+}
+@mixin align-center() {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-direction: column;
+}
+
+.middle-align {
+  @include align-middle();
+}
+
+.center-align {
+  @include align-center();
+}
+
+.spacer {
+  margin-top: 100px;
+}
+
+footer {
+  @include margin-top();
+  @include align-center();
+  color: $color-dark;
+  font-size: 14px;
+  ul {
+    padding: 0;
+    display: flex;
+    li {
+      @include align-middle();
+      margin: 0 5px;
+      a {
+        color: $color-secondary;
+      }
+    }
+  }
+}
+
+article {
+  &.center {
+    @include align-center();
+  }
+  &.center img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  &.left img {
+    float: left;
+    object-fit: cover;
+    margin: 5px 10px 0 0;
+    display: inline-block;
+  }
+}
+
+article.tiles {
+  ul {
+    list-style-type: none;
+    padding-inline-start: unset;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    li {
+      padding: 5px;
+      margin: 5px;
+      border-radius: 5px;
+      text-align: center;
+      background-color: $color-theme;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a {
+        color: $color-bg;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+      }
+      sup {
+        vertical-align: 3px;
+      }
+    }
+  }
+}
+

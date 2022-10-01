@@ -1,0 +1,15 @@
+ol > li {
+  ul > li {
+    list-style-type: disclosure-closed;
+  }
+  ol > li {
+    list-style: lower-alpha;
+  }
+}
+
+ul > li > ul > li {
+  list-style-type: square;
+  ul > li {
+    list-style-type: circle;
+  }
+}

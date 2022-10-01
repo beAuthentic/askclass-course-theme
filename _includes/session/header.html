@@ -1,0 +1,35 @@
+<section class="center-align special">
+  {% if session_data.header %}
+    <div>{{ session_data.header }}</div>
+  {% endif %}
+
+  <h1 class="special">{{ session_data.title }}</h1>
+
+  {% if session_data.part %}
+    <div>Part {{ session_data.part }}</div>
+  {% endif %}
+
+  {% include segment/nav.html segment=session_data.segment %}
+
+  <div>
+    {% if segment_data.begin and segment_data.end %}
+      {{ segment_data.begin | date: '%b %e' }} - {{ segment_data.end | date: '%b %e, %Y' }}
+    {% else %}
+      {{ segment_data.date }}
+    {% endif %}
+  </div>
+
+  <div class="middle-align">
+    {% for item in segment_data.items %}
+      {% assign _info = site.data.sessions[item] %}
+
+      {% if item == session_id %}
+        <span class="lesson-number current">{{ _info.sequence }}</span>
+      {% elsif _info.url %}
+        <a class="lesson-number" href="/session/{{ _info.url }}">{{ _info.sequence }}</a>
+      {% else %}
+        <span class="lesson-number">{{ _info.sequence }}</span>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

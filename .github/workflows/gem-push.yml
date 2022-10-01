@@ -1,0 +1,60 @@
+name: Jekyll Build
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Build + Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+         bundler-cache: true
+
+      - name: Get Current Version
+        id: version
+        run: |
+          echo ::set-output name=OLD::$(grep 'spec.version' *.gemspec | cut -d'"' -f2)
+          echo ::set-output name=NEW::$(echo ${GITHUB_REF_NAME:1})
+
+      - name: Get Package Name
+        id: name
+        run: echo ::set-output name=NAME::$(grep 'spec.name' *.gemspec | cut -d'"' -f2)
+
+      - name: Update Version
+        run: |
+          sed -i -e '/spec.version/c\  spec.version       = "${{ steps.version.outputs.NEW }}"' \
+          ${{ steps.name.outputs.NAME }}.gemspec
+
+      - name: Build
+        run: gem build ${{ steps.name.outputs.NAME }}.gemspec
+
+      - name: Credentials & Push
+        run: |
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:rubygems: ${{ secrets.RUBYGEMS_TOKEN }}\n" > $HOME/.gem/credentials
+          printf -- ":github: Bearer ${{ secrets.GITHUB_TOKEN }}\n" >> $HOME/.gem/credentials
+          gem push \
+            --key=github \
+            --host="https://rubygems.pkg.github.com/${{ github.repository_owner }}" \
+            ${{ steps.name.outputs.NAME }}-*.gem
+          gem push --key=rubygems ${{ steps.name.outputs.NAME }}-*.gem
+
+      - name: Version PR
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: Update to ${{ steps.version.outputs.NEW }}
+          title: Update ${{ steps.name.outputs.NAME }} (${{ steps.version.outputs.NEW }})
+          body: ${{ steps.old_version.outputs.OLD }}
+          branch: update-version
+          base: main
+
+      - uses: actions/delete-package-versions@v3
+        with:
+          package-name: 'askclass-course-theme'
+          min-versions-to-keep: 5
