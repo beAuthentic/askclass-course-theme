@@ -1,11 +1,16 @@
-{%- if session_data.type == 'Assignment' -%}
-<pre>
-{%- if session_data.points -%}
-Points: {{ session_data.points }}
-{%- endif -%}
-
-{%- if session_data.due %}
-Due: {{ session_data.due | date: '%B %d, %Y' }}
-{%- endif -%}
-</pre>
+{%- if session_data.points or session_data.due -%}
+<table style="width: max-content">
+  {%- if session_data.points -%}
+  <tr>
+    <td>Points</td>
+    <td>{{ session_data.points }}</td>
+  </tr>
+  {%- endif -%}
+  {%- if session_data.due -%}
+  <tr>
+    <td>Due</td>
+    <td>{{ session_data.due | date: '%B %d, %Y' }}</td>
+  </tr>
+  {%- endif -%}
+</table>
 {%- endif -%}
