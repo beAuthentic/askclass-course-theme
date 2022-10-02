@@ -1,8 +1,8 @@
-{% assign course = site.data.course %}
+{%- assign course = site.data.course -%}
 <ul class="grid">
-  {% for segment in course.segments %}
-    {% assign info = site.data.syllabus[segment] %}
-    {% if info %}
+  {%- for segment in course.segments -%}
+    {%- assign info = site.data.syllabus[segment] -%}
+    {%- if info -%}
       <li class="card-tab {{ info.theme }}">
         <div class="top-bar">{{ info.segment[0] }}</div>
         <div class="tab">{{ info.segment[1] }}</div>
@@ -12,34 +12,34 @@
           </a>
         </div>
         <div class="body">
-          {% if info.image %}
+          {%- if info.image -%}
             <img src="/assets/loading.svg" data="{{ info.thumb | default: info.image }}" alt="{{ info.title }}" />
-          {% endif %}
-          {% for item in info.items %}
-            {% assign session = site.data.sessions[item] %}
+          {%- endif -%}
+          {%- for item in info.items -%}
+            {%- assign session = site.data.sessions[item] -%}
             <div class="item">
               <div class="middle-align">
                 <span class="material-symbols-outlined">{{ session.icon }}</span>
                 <h3>{{ session.header }}</h3>
-                {% if session.due %}
-                  <small class="due" title="Due {{ session.due | date: site.acc.date_format }}">
-                    <span class="material-symbols-outlined">alarm_on</span>
-                    {{ session.due | date: site.acc.date_format }}
-                  </small>
-                {% endif %}
               </div>
+              {%- if session.due -%}
+                <small class="due" title="Due {{ session.due | date: site.acc.date_format }}">
+                  <span class="material-symbols-outlined">alarm_on</span>
+                  {{ session.due | date: '%b %e' }}
+                </small>
+              {%- endif -%}
 
-              {% if session.url %}
+              {%- if session.url -%}
                 <a href="/session/{{ session.url }}" title="{{ session.title }}">{{ session.title }}</a>
-              {% else %}
+              {%- else -%}
                 {{ session.title }}
-              {% endif %}
+              {%- endif -%}
 
-              {% if session.part %}
+              {%- if session.part -%}
                 <small>(Part {{ session.part }})</small>
-              {% endif %}
+              {%- endif -%}
             </div>
-          {% endfor %}
+          {%- endfor -%}
         </div>
         <div class="control">
           <a class="button" href="/segment/{{ segment }}">
@@ -48,6 +48,6 @@
           </a>
         </div>
       </li>
-    {% endif %}
-  {% endfor %}
+    {%- endif -%}
+  {%- endfor -%}
 </ul>

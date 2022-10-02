@@ -51,8 +51,10 @@ html {
     display: block;
     font-size: 12px;
   }
-  .material-symbols-outlined {
-    font-size: 24px;
+  &.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    line-height: 0.7;
+    font-size: 37px;
   }
 }
 
@@ -100,6 +102,7 @@ html {
       border-radius: 5px;
       margin: 0 3px;
       padding: 2px 5px;
+      width: fit-content;
       .material-symbols-outlined {
         font-size: 1.3em;
         font-variation-settings: 'FILL' 1;
