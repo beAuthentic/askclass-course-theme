@@ -74,7 +74,7 @@ html {
 
 .body {
   flex-grow: 2;
-  padding: 0 10px;
+  padding: 10px;
   overflow: hidden;
   text-align: left;
   h2 {
@@ -82,11 +82,13 @@ html {
     margin-top: 10px;
     line-height: 2.4rem;
   }
+  .item:not(:first-child) {
+    border-top: 3px outset;
+  }
   .item {
     margin-bottom: 20px;
     text-align: left;
     font-size: $size-font;
-    border-top: 3px outset;
     line-height: normal;
     h3 {
       margin: 3px 5px 0 5px;
