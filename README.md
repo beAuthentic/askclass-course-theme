@@ -13,7 +13,8 @@ $ bundle
 $ jekyll serve
 ```
 
-Copy `index.html`, `pwabuilder-sw.jq`, `_data`, and `content` to the root dir.
+Copy and edit `_config.yml`.
+Copy `index.html`, `pwabuilder-sw.jq`, `404.html`, `_data`, and `content` to the root dir.
 
 Existing project:
 ```sh
