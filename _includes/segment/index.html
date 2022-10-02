@@ -1,44 +1,48 @@
-{% assign info = include.info %}
+{%- assign info = include.info -%}
 
 <ul class="grid">
-  {% for item in info.items %}
-    {% assign session = site.data.sessions[item] %}
+  {%- for item in info.items -%}
+    {%- assign session = site.data.sessions[item] -%}
     <li class="card-tab {{ info.theme }}">
 
-      {% if session.type %}
+      {%- if session.type -%}
         <div class="top-bar">{{ session.type }}</div>
-        <div class="tab">{{ session.sequence }}</div>
-      {% elsif session.sequence %}
+      {%- elsif session.sequence -%}
         <div class="top-bar">{{ site.data.course.session_tag }}</div>
-        <div class="tab">{{ session.sequence }}</div>
-      {% else %}
+      {%- else -%}
         <div class="top-bar">&nbsp;</div>
-      {% endif %}
+      {%- endif -%}
 
-      {% if session.due %}
+      {%- if session.sequence -%}
+        <div class="tab">{{ session.sequence }}</div>
+      {%- elsif session.icon -%}
+        <div class="tab material-symbols-outlined">{{ session.icon }}</div>
+      {%- endif -%}
+
+      {%- if session.due -%}
         <div class="header">
           <span class="material-symbols-outlined">alarm_on</span>
           {{ session.due | date: '%b %e, %y' }}
         </div>
-      {% elsif session.type %}
+      {%- elsif session.type -%}
         <div class="header">{{ session.header }}</div>
-      {% else %}
+      {%- else -%}
         <div class="header">&nbsp;</div>
-      {% endif %}
+      {%- endif -%}
 
       <div class="body">
-        {% if session.url %}
+        {%- if session.url -%}
           <h3><a href="/session/{{ session.url }}">{{ session.title }}</a></h3>
-        {% else %}
+        {%- else -%}
           <h3>{{ session.title }}</h3>
-        {% endif %}
+        {%- endif -%}
 
-        {% if session.part %}
+        {%- if session.part -%}
           <div class="item">
           Part {{ session.part }}
           </div>
-        {% endif %}
+        {%- endif -%}
       </div>
     </li>
-  {% endfor %}
+  {%- endfor -%}
 </ul>

@@ -21,7 +21,6 @@ assignment-01:
   type: 'Assignment'
   icon: create
   header: 'Assignment'
-  sequence: A
   url: 'assignment-01'
   due: 2022-10-10
   points: 30
@@ -40,7 +39,6 @@ quiz-01:
   type: 'Quiz'
   icon: quiz
   header: 'Quiz'
-  sequence: Q
   url: 'quiz-01'
   due: 2022-10-17
   points: 40
