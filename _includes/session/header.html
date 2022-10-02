@@ -1,35 +1,40 @@
 <section class="center-align special">
-  {% if session_data.header %}
+  {%- if session_data.header -%}
     <div>{{ session_data.header }}</div>
-  {% endif %}
+  {%- endif -%}
 
   <h1 class="special">{{ session_data.title }}</h1>
 
-  {% if session_data.part %}
+  {%- if session_data.part -%}
     <div>Part {{ session_data.part }}</div>
-  {% endif %}
+  {%- endif -%}
 
-  {% include segment/nav.html segment=session_data.segment %}
+  {%- include segment/nav.html segment=session_data.segment -%}
 
   <div>
-    {% if segment_data.begin and segment_data.end %}
-      {{ segment_data.begin | date: '%b %e' }} - {{ segment_data.end | date: '%b %e, %Y' }}
-    {% else %}
-      {{ segment_data.date }}
-    {% endif %}
+    {%- include date_range.html info=segment_data -%}
   </div>
 
   <div class="middle-align">
-    {% for item in segment_data.items %}
-      {% assign _info = site.data.sessions[item] %}
+    {%- for item in segment_data.items -%}
+      {%- assign _info = site.data.sessions[item] -%}
+      {%- if _info.sequence -%}
+        {%- assign _mso = '' -%}
+      {%- else -%}
+        {%- assign _mso = 'material-symbols-outlined' -%}
+      {%- endif -%}
 
-      {% if item == session_id %}
-        <span class="lesson-number current">{{ _info.sequence }}</span>
-      {% elsif _info.url %}
-        <a class="lesson-number" href="/session/{{ _info.url }}">{{ _info.sequence }}</a>
-      {% else %}
+      {%- if item == session_id -%}
+        <span class="lesson-number current {{_mso}}">
+          {{ _info.sequence | default: _info.icon }}
+        </span>
+      {%- elsif _info.url -%}
+        <a class="lesson-number {{_mso}}" href="/session/{{ _info.url }}">
+          {{ _info.sequence | default: _info.icon }}
+        </a>
+      {%- else -%}
         <span class="lesson-number">{{ _info.sequence }}</span>
-      {% endif %}
-    {% endfor %}
+      {%- endif -%}
+    {%- endfor -%}
   </div>
 </section>

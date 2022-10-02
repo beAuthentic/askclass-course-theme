@@ -27,6 +27,11 @@ samp {
   &.current {
     background-color: var(--secondaryColor);
   }
+  &.material-symbols-outlined {
+    font-size: 25px;
+    padding: 4px 5px 6px 5px;
+    font-family: 'Material Symbols Outlined';
+  }
 }
 
 a.lesson-number{
