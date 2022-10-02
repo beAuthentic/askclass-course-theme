@@ -1,10 +1,5 @@
 {% assign info = include.info %}
 <section class="center-align">
   <h1 class="special">{{ info.title }}</h1>
-
-  {% if info.begin and info.end %}
-    {{ info.begin | date: '%b %e' }} - {{ info.end | date: '%b %e, %Y' }}
-  {% else %}
-    {{ info.date }}
-  {% endif %}
+  {%- include date_range.html info=include.info -%}
 </section>

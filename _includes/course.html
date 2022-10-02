@@ -8,11 +8,7 @@
         <div class="tab">{{ info.segment[1] }}</div>
         <div class="header">
           <a href="/segment/{{ segment }}">
-            {% if info.begin and info.end %}
-              {{ info.begin | date: site.acc.date_format }} - {{ info.end | date: site.acc.date_format }}
-            {% else %}
-              {{ info.date }}
-            {% endif %}
+            {%- include date_range.html info=info -%}
           </a>
         </div>
         <div class="body">

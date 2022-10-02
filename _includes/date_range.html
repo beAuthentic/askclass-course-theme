@@ -1,0 +1,21 @@
+{%- assign _d = include.info -%}
+
+{%- if _d.begin and _d.end -%}
+  {%- assign y1 = _d.begin | date: '%Y' -%}
+  {%- assign y2 = _d.end | date: '%Y' -%}
+  {%- if y1 == y2 -%}
+    {%- assign m1 = _d.begin | date: '%m' -%}
+    {%- assign m2 = _d.end | date: '%m' -%}
+    {{ _d.begin | date: '%b %e - ' }}
+    {%- if m1 == m2 -%}
+      {{ _d.end | date: '%e, %y' }}
+    {%- else -%}
+      {{ _d.end | date: '%b %e, %y' }}
+    {%- endif -%}
+  {%- else -%}
+    {{ _d.begin | date: '%b %e, %y-' }}{{ _d.end | date: '%b %e, %y' }}
+  {%- endif -%}
+{%- elsif _d.date | date: '%b %e, %y' -%}
+  {{ _d.date }}
+{%- endif -%}
+
