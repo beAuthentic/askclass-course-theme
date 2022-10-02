@@ -84,6 +84,10 @@ html {
     margin-top: 10px;
     line-height: 2.4rem;
   }
+  h4 {
+    color: inherit;
+    margin: 5px 0;
+  }
   .item:not(:first-child) {
     border-top: 3px outset;
   }

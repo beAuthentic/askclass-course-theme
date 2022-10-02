@@ -1,6 +1,7 @@
 week-01:
-  title: 'Week 1'
-  segment: ['week', 1]
+  title: 'Segment 1'
+  desc: "Theme's overview"
+  segment: ['segment', 1]
   begin: 2022-10-03
   end: 2022-10-07
   theme: c1
@@ -10,8 +11,9 @@ week-01:
     - assignment-01
 
 week-02:
-  title: "Week 2"
-  segment: ['week', 2]
+  title: "Segment 2"
+  desc: "Dive deeper"
+  segment: ['segment', 2]
   begin: 2022-10-10
   end: 2022-10-17
   theme: c3

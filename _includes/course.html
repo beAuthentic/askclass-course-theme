@@ -12,6 +12,9 @@
           </a>
         </div>
         <div class="body">
+          {%- if info.desc -%}
+            <h4>{{ info.desc }}</h4>
+          {%- endif -%}
           {%- if info.image -%}
             <img src="/assets/loading.svg" data="{{ info.thumb | default: info.image }}" alt="{{ info.title }}" />
           {%- endif -%}
