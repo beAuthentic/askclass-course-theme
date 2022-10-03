@@ -111,6 +111,9 @@ html {
         font-size: 1.3em;
         font-variation-settings: 'FILL' 1;
       }
+      &.past {
+        background-color: var(--darkColor);
+      }
     }
   }
   pre, code {
