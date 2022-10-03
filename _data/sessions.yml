@@ -17,13 +17,13 @@ session-02:
 
 assignment-01:
   segment: 'week-01'
-  title: "Create GitHub Page Using AskClass Course Theme"
+  title: "Get AskClass Course Theme Running"
   type: 'Assignment'
   icon: create
   header: 'Assignment'
   url: 'assignment-01'
   due: 2022-10-10
-  points: 30
+  points: 20
 
 session-03:
   segment: 'week-02'
@@ -33,6 +33,16 @@ session-03:
   sequence: 3
   url: 'session-03'
 
+assignment-02:
+  segment: 'week-02'
+  title: "Hosting Your Page on GitHub"
+  type: 'Assignment'
+  icon: favorite
+  header: 'Assignment'
+  url: 'assignment-02'
+  due: 2022-10-16
+  points: 20
+
 quiz-01:
   segment: 'week-02'
   title: "Seek Knowledge & Gain Wisdom"
@@ -41,4 +51,4 @@ quiz-01:
   header: 'Quiz'
   url: 'quiz-01'
   due: 2022-10-17
-  points: 40
+  points: 60

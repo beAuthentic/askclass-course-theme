@@ -51,7 +51,6 @@ This folder contains all the meta information about the course.
 
 Key           | Description
 :---:         | :---
-`id`          | Class ID (e.g. `AC 101`)
 `session_tag` | A unit indicating a module or a lesson
 `segments`    | How is the course divided (e.g. by week). Segment tag correspond to files in `content/_segment` folder
 
@@ -60,6 +59,7 @@ Key           | Description
 Key       | Description
 :---:     | :---
 `title`   | Name of this segment (e.g `Week 1`)
+`desc`    | Optional description on the index grid
 `segment` | Header tag (for index page) and sequence number
 `begin`   | When this segment begins
 `end`     | When the segment end
@@ -72,11 +72,14 @@ Key         | Description
 :---:       | :---
 `segment`   | Which segment does this session belong to (see `course.yml` above)
 `title`     | The title of this session
-`icon`      | Icon on the index page (see [Material Symbols] for details)
+`type`      | Alternative `session_tag` that overrides `course.yml`'s tag
+`icon`      | Icon on the index page or replaces the sequence number (see [Material Symbols] for details)
 `header`    | Header for the session usually part of a series (e.g. `Session 1`)
-`sequence`  | A sequence number
+`sequence`  | An optional sequence number (e.g. `3`)
 `url`       | Link to the content of this session
 `videos`    | Arrray of YouTube video IDs to render at the top of the session
+`due`       | A date that this assignment or quiz is due (e.g. `2022-10-10`)
+`points`    | Optional value of this assignment (e.g. `30`)
 
 ### `content/_segment` Folder
 

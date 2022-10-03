@@ -6,8 +6,18 @@ On windows, use Bash (install Windows Subsystem for Linux) it will greatly enhan
 
 ### Install Jekyll
 
-If you have not already,
-follow [this instruction][Jekyll] install [Jekyll] on your machine.
+If you have not already, follow [this instruction][Jekyll] install Jekyll on your machine.
+
+### Copy Starting files
+
+Copy these files to your main folder:
+
+- `index.html`
+- `pwabuilder-sw.jq`
+- `404.html`
+- `_config.yml`
+- `_data`
+- `content`
 
 ### Add AskClass Course Theme
 
@@ -18,24 +28,19 @@ $ sed -i '1 s/^/theme: askclass-course-theme\n/' _config.yml
 $ bundle
 ```
 
-### Copy Starting files
-
-Copy these files to your main folder.
-Edit `_config.yml`, add salt & pepper to taste.
-Copy the `content` & `_data` folders from this repo.
-
 ### Start
+
+Edit `_config.yml`, add salt & pepper to taste.
 
 ```sh
 $ bundle exec jekyll serve
 ```
 
-Hopefully, the site is looking like it should.
-If not... something is wrong.
+At this point, this site should be up and running on your local computer.
+Look here for example: [acc.askclass.com](https://acc.askclass.com).
 
 ----
 
 Now onto making your content!
-Click `Week 2` link!
 
 [Jekyll]: https://jekyllrb.com/docs/
