@@ -1,4 +1,4 @@
-# AskClass News Theme
+# AskClass Course Theme
 [![Deploy Jekyll]][Deploy Jekyll Link] [![Build]][Build Link] [![CodeQL]][CodeQL Link]
 
 Simple responsive Jekyll theme for a course syllabus.
