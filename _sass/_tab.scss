@@ -101,12 +101,11 @@ html {
       color: $color-fg;
     }
     .due {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       border-radius: 5px;
       margin: 0 3px;
       padding: 2px 5px;
-      width: fit-content;
       .material-symbols-outlined {
         font-size: 1.3em;
         font-variation-settings: 'FILL' 1;
@@ -114,6 +113,9 @@ html {
       &.past {
         background-color: var(--darkColor);
       }
+    }
+    small {
+      margin-left: 5px;
     }
   }
   pre, code {
