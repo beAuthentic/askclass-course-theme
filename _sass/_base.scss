@@ -1,9 +1,36 @@
+:root {
+  --font-special:       #{$font-special};
+  --font-main:          #{$font-main};
+  --font-secondary:     #{$font-secondary};
+  --font-mono:          #{$font-mono};
+
+  --color-bg:           #{$color-bg};
+  --color-fg:           #{$color-fg};
+  --color-primary:      #{$color-primary};
+  --color-secondary:    #{$color-secondary};
+  --color-tertiary:     #{$color-tertiary};
+  --color-link:         #{$color-link};
+  --color-dark:         #{$color-dark};
+  --color-theme:        #{$color-theme};
+  --color-row-odd:      #{$color-row-odd};
+  --color-row-even:     #{$color-row-even};
+
+  --color-card-fg:      #{$color-card-fg};
+  --color-card-bg:      #{$color-card-bg};
+
+  --content-width:      #{$content-width};
+
+  --grid-width:         #{$grid-width};
+  --grid-image-height:  #{$grid-image-height};
+  --card-font-size:     #{$card-font-size};
+}
+
 body {
-  font-family: $font-main;
+  font-family: var(--font-main);
   font-size: 17px;
   line-height: 1.6;
-  background-color: $color-bg;
-  color: $color-fg;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
   &::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -21,18 +48,18 @@ hr {
   width: 300px;
   margin-bottom: 20px;
   margin-top: 40px;
-  border-color: $color-bg;
+  border-color: var(--color-bg);
 }
 
 a {
-  color: $color-link;
+  color: var(--color-link);
   text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-secondary;
+  font-family: var(--font-secondary);
   font-weight: normal;
-  color: $color-secondary;
+  color: var(--color-secondary);
   line-height: 1;
 }
 
@@ -44,19 +71,19 @@ h5 { font-size: 1.2em }
 h6 { font-size: 1em }
 
 .special {
-  font-family: $font-special;
+  font-family: var(--font-special);
   text-align: center;
-  color: $color-primary;
+  color: var(--color-primary);
   margin: 10px 0 5px 0;
 }
 
 code, pre {
-  font-family: $font-mono;
+  font-family: var(--font-mono);
 }
 
 code {
   white-space: pre-wrap;
-  color: $color-secondary;
+  color: var(--color-secondary);
   &.rounded {
     border-radius: 5px;
     margin: 0 3px;
@@ -87,14 +114,6 @@ sub {
 .md-36 { font-size: 36px; }
 .md-48 { font-size: 48px; }
 .md-disabled { color: rgba(0,0,0,0.6); }
-
-.buttons {
-  margin-bottom: 1em;
-  a {
-    text-decoration: none;
-    color: yellowgreen;
-  }
-}
 
 @mixin margin-top() {
   margin-top: 100px;
@@ -131,7 +150,7 @@ sub {
 footer {
   @include margin-top();
   @include align-center();
-  color: $color-dark;
+  color: var(--color-dark);
   font-size: 14px;
   ul {
     padding: 0;
@@ -140,7 +159,7 @@ footer {
       @include align-middle();
       margin: 0 5px;
       a {
-        color: $color-secondary;
+        color: var(--color-secondary);
       }
     }
   }
@@ -160,34 +179,34 @@ article {
     margin: 5px 10px 0 0;
     display: inline-block;
   }
-}
-
-article.tiles {
-  ul {
-    list-style-type: none;
-    padding-inline-start: unset;
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    li {
-      padding: 5px;
-      margin: 5px;
-      border-radius: 5px;
-      text-align: center;
-      background-color: $color-theme;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      a {
-        color: $color-bg;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        word-break: break-word;
-      }
-      sup {
-        vertical-align: 3px;
+  &.tiles {
+    ul {
+      list-style-type: none;
+      padding-inline-start: unset;
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      li {
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+        text-align: center;
+        background-color: var(--color-theme);
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a {
+          color: var(--color-bg);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          word-break: break-word;
+        }
+        sup {
+          vertical-align: 3px;
+        }
       }
     }
   }
 }
+

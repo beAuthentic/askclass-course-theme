@@ -1,27 +1,27 @@
 article {
-  max-width: var(--contentWidth);
+  max-width: var(--content-width);
   width: 100%;
   display: flex;
   flex-direction: column;
   overflow-wrap: break-word;
   word-break: break-word;
   h1, h2, h3, h4 {
-    font-family: var(--specialFont);
+    font-family: var(--font-special);
     margin-bottom: 0;
   }
   h1 {
     & + time {
-      color: var(--darkColor);
+      color: var(--color-dark);
       font-size: 15px;
     }
   }
   address {
     font-style: normal;
-    font-family: var(--secondaryFont);
+    font-family: var(--font-secondary);
     margin-top: 1.5em;
     font-size: 1.4em;
     a {
-      color: var(--tertiaryColor);
+      color: var(--color-tertiary);
     }
   }
   .text > p:first-child {
@@ -30,12 +30,12 @@ article {
   }
   .tags {
     small {
-      font-family: var(--secondaryFont);
-      color: var(--darkColor);
+      font-family: var(--font-secondary);
+      color: var(--color-dark);
     }
   }
   .source {
-    color: var(--darkColor);
+    color: var(--color-dark);
     font-size: 13px;
     & > * {
       margin-left: 10px;
@@ -44,10 +44,10 @@ article {
 }
 
 blockquote {
-  border-left: 5px solid var(--darkColor);
+  border-left: 5px solid var(--color-dark);
   padding-left: 10px;
   margin: 0 10px 0 20px;
-  font-family: var(--specialFont);
+  font-family: var(--font-special);
   font-size: 19px;
   p {
     margin: 0;
@@ -56,3 +56,50 @@ blockquote {
     margin-bottom: 2em;
   }
 }
+
+samp {
+  filter: blur(4px);
+  font-family: var(--font-special);
+  font-size: 18px;
+  cursor: pointer;
+  &.on {
+    filter: none;
+    color: var(--color-secondary);
+  }
+}
+
+.lesson-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 7px 5px 3px 5px;
+  margin: 0 5px;
+  background-color: var(--color-fg);
+  font-family: var(--fontText);
+  color: var(--color-bg);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+
+  &.current {
+    background-color: var(--color-secondary);
+  }
+  &.material-symbols-outlined {
+    font-size: 25px;
+    padding: 5px;
+    font-family: 'Material Symbols Outlined';
+  }
+}
+
+a.lesson-number{
+  color: var(--color-fg);
+  background-color: var(--color-link);
+}
+
+@import
+  "bullets",
+  "table",
+  "tab-colors",
+  "video";

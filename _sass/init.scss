@@ -1,37 +1,27 @@
-$font-main:         'Open Sans', sans-serif;
-$font-secondary:    'Teko', sans-serif;
-$font-special:      'Josefin Sans', sans-serif;
-$font-mono:         'Share Tech Mono', monospace;
+$font-main:             'Open Sans', sans-serif;
+$font-secondary:        'Teko', sans-serif;
+$font-special:          'Josefin Sans', sans-serif;
+$font-mono:             'Share Tech Mono', monospace;
 
-$color-primary:     aliceblue;
-$color-secondary:   skyblue;
-$color-tertiary:    #2cdd88;
-$color-bg:          #222;
-$color-fg:          ivory;
-$color-dark:        gray;
-$color-link:        deeppink;
-$color-theme:       #ffc100;
+$color-primary:         aliceblue;
+$color-secondary:       skyblue;
+$color-tertiary:        #2cdd88;
+$color-bg:              #222;
+$color-fg:              ivory;
+$color-dark:            gray;
+$color-link:            deeppink;
+$color-theme:           #ffc100;
 
-$content-width:     600px;
+$color-row-odd:         #2a2a2a;
+$color-row-even:        #2f2f2f;
 
-:root {
-  --specialFont:    #{$font-special};
-  --mainFont:       #{$font-main};
-  --secondaryFont:  #{$font-secondary};
-  --monoFont:       #{$font-mono};
+$color-card-bg:         whitesmoke;
+$color-card-fg:         #444;
+$card-font-size:        16px;
 
-  --bgColor:        #{$color-bg};
-  --fgColor:        #{$color-fg};
-  --primaryColor:   #{$color-primary};
-  --secondaryColor: #{$color-secondary};
-  --tertiaryColor:  #{$color-tertiary};
-  --linkColor:      #{$color-link};
-  --darkColor:      #{$color-dark};
-  --themeColor:     #{$color-theme};
+$content-width:         600px;
 
-  --contentWidth:   #{$content-width};
-}
+$grid-width:            180px;
+$grid-image-height:     180px;
 
-@import
-  "custom-variables",
-  "default";
+@import "base";
