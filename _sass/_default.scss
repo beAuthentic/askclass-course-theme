@@ -1,33 +1,3 @@
-$font-main: 'Open Sans', sans-serif;
-$font-secondary: 'Teko', sans-serif;
-$font-special: 'Josefin Sans', sans-serif;
-$font-mono: 'Share Tech Mono', monospace;
-$color-primary: aliceblue;
-$color-secondary: skyblue;
-$color-tertiary: #2cdd88;
-$color-bg: #222;
-$color-fg: ivory;
-$color-dark: gray;
-$color-link: deeppink;
-$color-theme: #ffc100;
-$content-width: 600px;
-
-html {
-  --specialFont: #{$font-special};
-  --mainFont: #{$font-main};
-  --secondaryFont: #{$font-secondary};
-  --monoFont: #{$font-mono};
-  --primaryColor: #{$color-primary};
-  --secondaryColor: #{$color-secondary};
-  --linkColor: #{$color-link};
-  --bgColor: #{$color-bg};
-  --fgColor: #{$color-fg};
-  --darkColor: #{$color-dark};
-  --contentWidth: #{$content-width};
-  --themeColor: #{$color-theme};
-  --tertiaryColor: #{$color-tertiary};
-}
-
 body {
   font-family: $font-main;
   font-size: 17px;
@@ -221,4 +191,3 @@ article.tiles {
     }
   }
 }
-

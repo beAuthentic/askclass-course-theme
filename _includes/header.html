@@ -2,11 +2,8 @@
   {%- include head/meta.html -%}
   {%- include head/common.html -%}
   {%- if page.collection == 'session' -%}
-  <link rel="preload" as="style" href="{{ 'assets/css/md.css' |  relative_url }}"
-        onload='this.onload=null;this.rel="stylesheet"' />
+  <link rel="stylesheet" href="{{ 'assets/css/session.css' |  relative_url }}" />
   {%- else -%}
-  <link rel="stylesheet" href="{{ 'assets/css/grid.css' |  relative_url }}" />
-  <link rel="stylesheet" href="{{ 'assets/css/tab.css' |  relative_url }}" />
+  <link rel="stylesheet" href="{{ 'assets/css/index.css' |  relative_url }}" />
   {%- endif -%}
-  <link rel="stylesheet" href="{{ 'assets/css/style.css' |  relative_url }}" />
 </head>
