@@ -3,7 +3,7 @@
 Replace the `theme` configuration with `remote_theme`.
 Your configuration should look like this:
 
-```yml
+```
 remote_theme: beAuthentic/askclass-course-theme
 #theme: askclass-course-theme
 ```
@@ -24,7 +24,7 @@ Two sets of logos are required with configurable resolution:
 
 Default resolutions which can be configured in `_config.yml`:
 
-```yml
+```
 acc:
   logo:
     sizes: [ 48, 96, 144, 192, 300, 512 ]
@@ -44,7 +44,7 @@ You'll also need `logo.svg` and `favicon.png`.
 
 All files in this folder have this content:
 
-```md
+```
 ---
 ---
 ```
