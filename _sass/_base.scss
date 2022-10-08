@@ -148,6 +148,23 @@ sub {
   margin-top: 100px;
 }
 
+.course-id {
+  @include align-middle();
+  font-family: var(--font-special);
+  flex-direction: row-reverse;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  a {
+    color: var(--color-theme);
+    display: flex;
+    margin-left: 5px;
+  }
+  & a:nth-child(2) {
+    margin-top: 3px;
+  }
+}
+
 footer {
   @include margin-top();
   @include align-center();
