@@ -17,6 +17,7 @@
 
   --color-card-fg:      #{$color-card-fg};
   --color-card-bg:      #{$color-card-bg};
+  --color-code-bg:      #{$color-code-bg};
 
   --content-width:      #{$content-width};
 
@@ -92,7 +93,7 @@ code {
 }
 
 pre {
-  background: linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.05));
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
   padding: 10px;
   code {
     color: inherit;

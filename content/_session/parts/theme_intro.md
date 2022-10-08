@@ -1,4 +1,5 @@
-## Theme Introduction
+<sub>Theme</sub>
+## Introduction
 
 Using the AskClass Course Theme helps you organize your study material
 and host it for free using GitHub Pages.
@@ -43,18 +44,21 @@ and host it for free using GitHub Pages.
 You can use different filenames to organize your content accordingly.
 </small>
 
-### `_data` Folder
+<sub>Folder</sub>
+### `_data`
 
 This folder contains all the meta information about the course.
 
-#### `course.yml`
+<sub>File</sub>
+#### `_data/course.yml`
 
 Key           | Description
 :---:         | :---
 `session_tag` | A unit indicating a module or a lesson
 `segments`    | How is the course divided (e.g. by week). Segment tag correspond to files in `content/_segment` folder
 
-#### `syllabus.yml`
+<sub>File</sub>
+#### `_data/syllabus.yml`
 
 Key       | Description
 :---:     | :---
@@ -66,7 +70,8 @@ Key       | Description
 `theme`   | Color from `c1` to `c10`
 `items`   | List the sessions correspond to `_data/sessions.yml`. Sessions are files in `content/_session` folder
 
-#### `sessions.yml`
+<sub>File</sub>
+#### `_data/sessions.yml`
 
 Key         | Description
 :---:       | :---
@@ -81,14 +86,16 @@ Key         | Description
 `due`       | A date that this assignment or quiz is due (e.g. `2022-10-10`)
 `points`    | Optional value of this assignment (e.g. `30`)
 
-### `content/_segment` Folder
+<sub>Folder</sub>
+### `content/_segment`
 
 This folder contain files that correspond to the naming conventions given in `course.yml` configuration file.
 These files are used to group sessions into collections.
 To add a session to a segment, specify the `segment` value in `sessions.yml` file.
 `syllabus.yml` contains information about all the segments.
 
-### `content/_session` Folder
+<sub>Folder</sub>
+### `content/_session`
 
 Store your course content in this folder.
 Reference them in the `sessions.yml` data file.
