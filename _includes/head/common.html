@@ -1,7 +1,8 @@
 {% assign acc = site.acc %}
 {% assign desc = page.excerpt | default: site.description | strip_html | strip_newlines %}
+{% assign assets = '/assets/' | prepend: site.url %}
 {% assign families = acc.font_families | join: "&family=" %}
-{% assign og_image = acc.meta.og_image | prepend: '/assets/' | prepend: site.url %}
+{% assign og_image = acc.meta.og_image | prepend: assets %}
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -26,7 +27,7 @@
   <meta name="twitter:card" content="summary_large_image">
   {% endif % %}
 
-  <link rel="manifest" href="/assets/site.webmanifest" />
+  <link rel="manifest" href="{{ assets }}site.webmanifest" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,11 +35,11 @@
   <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family={{ families }}&display=swap"
         onload='this.onload=null;this.rel="stylesheet"' />
-  <link rel="shortcut icon" href="/assets/{{ acc.meta.shortcut.favicon }}" />
-  <link rel="icon" type="{{ acc.meta.shotcut.type }}" href="/assets/{{ acc.meta.shortcut.image }}" />
-  <link rel="icon" type="image/svg+xml" href="/assets/{{ acc.logo.image }}" />
+  <link rel="shortcut icon" href="{{ assets }}{{ acc.meta.shortcut.favicon }}" />
+  <link rel="icon" type="{{ acc.meta.shotcut.type }}" href="{{ assets}}{{ acc.meta.shortcut.image }}" />
+  <link rel="icon" type="image/svg+xml" href="{{ assets}}{{ acc.logo.image }}" />
 
-  <link rel="apple-touch-icon" href="/assets/{{ acc.meta.apple_icon }}" />
+  <link rel="apple-touch-icon" href="{{ assets}}{{ acc.meta.apple_icon }}" />
   {% for size in acc.logo.sizes %}
-  <link rel="apple-touch-icon" sizes="{{size}}x{{size}}" href="/assets/logo-{{size}}.png" />
+  <link rel="apple-touch-icon" sizes="{{size}}x{{size}}" href="{{ assets }}logo-{{size}}.png" />
   {% endfor %}
