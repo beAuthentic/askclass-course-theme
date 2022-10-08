@@ -8,7 +8,7 @@
   {%- if include.href %}
   <h4 class="special"><a href="{{ include.href }}">{{ include.title | default: site.title }}</a></h4>
   {% elsif include.title %}
-  <h4 class="special" style="color: var(--color-secondary); margin: 0 0 1em 0">{{ include.title }}</h4>
+  <h4 class="special" style="color: var(--color-theme); margin: 0 0 1em 0">{{ include.title }}</h4>
   {% else %}
   <h4 class="special">{{ include.title | default: site.title }}</h4>
   {% endif -%}
