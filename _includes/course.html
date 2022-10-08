@@ -23,7 +23,13 @@
             <div class="item">
               <div class="middle-align">
                 <span class="material-symbols-outlined">{{ session.icon }}</span>
-                <h3>{{ session.header }}</h3>
+                {%- if session.url -%}
+                  <a href="/session/{{ session.url }}" title="{{ session.title }}">
+                    <h3>{{ session.header }}</h3>
+                  </a>
+                {%- else -%}
+                    <h3>{{ session.header }}</h3>
+                {%- endif -%}
               </div>
               {%- if session.due -%}
                 <small class="due"
@@ -34,11 +40,7 @@
                 </small>
               {%- endif -%}
 
-              {%- if session.url -%}
-                <a href="/session/{{ session.url }}" title="{{ session.title }}">{{ session.title }}</a>
-              {%- else -%}
-                {{ session.title }}
-              {%- endif -%}
+              {{ session.title }}
 
               {%- if session.part -%}
                 <small>(Part {{ session.part }})</small>
