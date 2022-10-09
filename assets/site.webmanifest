@@ -51,12 +51,20 @@
     {
       "src": "logo-icon.svg",
       "type": "image/svg+xml",
-      "sizes": "any"
+      "sizes": "any",
+      "purpose": "any"
     }
   ],
   "lang": "en",
   "display_override": [
     "standalone",
     "fullscreen"
+  ],
+  "shortcuts": [
+    {
+      "name": "{{ site.acc.shortcut.name }}",
+      "url": "{{ site.acc.shortcut.url }}",
+      "description": "{{ site.acc.shortcut.desc }}"
+    }
   ]
 }
