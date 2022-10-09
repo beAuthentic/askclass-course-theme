@@ -65,7 +65,7 @@ collections:
 
 defaults:
   - scope:
-      path: ""
+      path: "*.html"
     values:
       layout: "default"
   - scope:
