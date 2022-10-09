@@ -1,5 +1,6 @@
-{% assign file = site.static_files | where: "path", "/pwabuilder-sw.js" %}
-{% if file.size != 0 %}
+{% assign pwafile = site.static_files | where: "path", "/pwabuilder-sw.js" %}
+{% assign offlinefile = site.static_files | where: "path", "/offline.html" %}
+{% if file.size != 0 && offlinefile.size != 0 %}
   <script defer type="module">
     import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
     const el = document.createElement('pwa-update');

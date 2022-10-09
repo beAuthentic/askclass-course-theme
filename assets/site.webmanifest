@@ -50,8 +50,13 @@
     },
     {
       "src": "logo-icon.svg",
-      "type": "image/png",
+      "type": "image/svg+xml",
       "sizes": "any"
     }
+  ],
+  "lang": "en",
+  "display_override": [
+    "standalone",
+    "fullscreen"
   ]
 }

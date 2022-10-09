@@ -5,8 +5,10 @@
     {% include logo.html %}
     {% if page.url == '/' %}
       {% include course.html %}
-    {% elsif page.url == '/404' %}
+    {% elsif page.url == '/404.html' %}
       <h2 class="center-align">Page not found!</h2>
+    {% elsif page.url == '/offline.html' %}
+      <h2 class="center-align">You're Currently Offline</h2>
     {% else %}
       {{ content }}
     {% endif %}
