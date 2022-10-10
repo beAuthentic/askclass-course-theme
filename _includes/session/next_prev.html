@@ -10,13 +10,16 @@
 
 {%- assign _p = include.item -%}
 
-<div class="paginator">
+<div class="paginator {{ arrow }}">
   {%- if _p %}
   <div class="{{ align }}">
     <span>{{ indicator }}</span>
     <span class="material-symbols-outlined">navigate_{{ arrow }}</span>
   </div>
   <a href="/session/{{ _p.url }}">
+    {%- if _p.header -%}
+      {{ _p.header }} &bull;&nbsp;
+    {%- endif -%}
     {{ _p.title }}
   </a>
   {%- else %}
