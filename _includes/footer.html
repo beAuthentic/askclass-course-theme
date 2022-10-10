@@ -3,7 +3,9 @@
   <ul>
     {% for item in site.acc.footer -%}
     <li>
-      <span class="material-symbols-outlined">{{ item.icon }}</span>
+      {%- if item.icon -%}
+        <span class="material-symbols-outlined">{{ item.icon }}</span>
+      {%- endif -%}
       <a href="{{ item.href }}">{{ item.text }}</a>
     </li>
     {%- endfor %}

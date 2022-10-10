@@ -21,7 +21,7 @@
 
       {%- if session.due -%}
         <div class="header">
-          <span class="material-symbols-outlined">alarm_on</span>
+          <span data-date="{{ session.due }}" class="material-symbols-outlined alarm">alarm_on</span>
           {{ session.due | date: '%b %e, %y' }}
         </div>
       {%- elsif session.type -%}
@@ -46,3 +46,13 @@
     </li>
   {%- endfor -%}
 </ul>
+
+<script defer>
+  const due = document.querySelectorAll('.alarm');
+  due.forEach( el => {
+      const d = new Date(el.dataset.date.split('-')).getTime();
+      if (d < Date.now()) {
+        el.parentNode.removeChild(el);
+      }
+    });
+</script>

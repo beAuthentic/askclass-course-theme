@@ -51,7 +51,8 @@
         <div class="control">
           <a class="button" href="/segment/{{ segment }}">
             {{ info.title }}&nbsp;
-            <span class="middle-align material-symbols-outlined">rocket_launch</span>
+            <span data-date="{{ info.end }}"
+              class="middle-align material-symbols-outlined rocket">rocket_launch</span>
           </a>
         </div>
       </li>
@@ -61,10 +62,19 @@
 
 <script defer>
   const due = document.querySelectorAll('.due');
+  const rocket = document.querySelectorAll('.rocket');
   due.forEach( el => {
       const d = new Date(el.dataset.date.split('-')).getTime();
       if (d < Date.now()) {
         el.classList.add('past');
+      }
+    });
+  rocket.forEach( el => {
+      if (el.dataset.date) {
+        const d = new Date(el.dataset.date.split('-')).getTime();
+        if (d < Date.now()) {
+          el.innerText = 'rocket';
+        }
       }
     });
 </script>
