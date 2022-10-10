@@ -41,6 +41,9 @@ html {
       color: white;
       background-color: $color;
     }
+    .item:not(:first-child) {
+      border-color: $color;
+    }
   }
   &.current {
     .control {
