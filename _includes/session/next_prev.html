@@ -1,0 +1,25 @@
+{%- if include.p == 'previous' -%}
+  {%- assign align = 'pull-left' -%}
+  {%- assign arrow = 'before' -%}
+  {%- assign indicator = 'Previous' -%}
+{%- else -%}
+  {%- assign align = 'pull-right' -%}
+  {%- assign arrow = 'next' -%}
+  {%- assign indicator = 'Next' -%}
+{%- endif -%}
+
+{%- assign _p = include.item -%}
+
+<div class="paginator">
+  {%- if _p %}
+  <div class="{{ align }}">
+    <span>{{ indicator }}</span>
+    <span class="material-symbols-outlined">navigate_{{ arrow }}</span>
+  </div>
+  <a href="/session/{{ _p.url }}">
+    {{ _p.title }}
+  </a>
+  {%- else %}
+  <div class="{{ align }}">&nbsp;</div>
+  {% endif -%}
+</div>

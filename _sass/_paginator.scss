@@ -1,0 +1,34 @@
+$size-width: 150px;
+
+.paginator-container {
+  max-width: var(--content-width);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.paginator {
+  width: $size-width;
+  a {
+    text-align: center;
+    display: block;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100px;
+  }
+}
+
+.pull-left, .pull-right {
+  color: var(--darkColor);
+  display: flex;
+  align-items: end;
+  justify-content: flex-end;
+}
+
+.pull-left {
+  flex-direction: row-reverse;
+}

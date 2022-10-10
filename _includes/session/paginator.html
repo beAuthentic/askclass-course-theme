@@ -1,0 +1,26 @@
+{% for s in segment_data.items %}
+  {% if s == session_id %}
+    {% assign _index = forloop.index0 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign _nidx = _index | plus: 1 %}
+{% assign _next_segment = segment_data.items[_nidx] %}
+{% assign _next_item = site.data.sessions[_next_segment] %}
+
+{% if _index > 0 %}
+  {% assign _pidx = _index | minus: 1 %}
+  {% assign _prev_segment = segment_data.items[_pidx] %}
+  {% assign _prev_item = site.data.sessions[_prev_segment] %}
+{% endif %}
+
+<section class="spacer center-align">
+
+  {% include segment/nav.html segment=session_data.segment icon=1 %}
+
+  <div class="paginator-container">
+  {% include session/next_prev.html p="previous" item=_prev_item %}
+  {% include session/next_prev.html p="next" item=_next_item %}
+  </div>
+</section>
