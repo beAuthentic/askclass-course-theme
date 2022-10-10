@@ -14,11 +14,6 @@
   "dir": "auto",
   "icons": [
     {
-      "src": "logo-300.png",
-      "type": "image/png",
-      "sizes": "300x300"
-    },
-    {
       "src": "logo-48.png",
       "sizes": "48x48",
       "type": "image/png",
@@ -43,6 +38,11 @@
       "purpose": "maskable"
     },
     {
+      "src": "logo-300.png",
+      "type": "image/png",
+      "sizes": "300x300"
+    },
+    {
       "src": "logo-512.png",
       "sizes": "512x512",
       "type": "image/png",
@@ -62,6 +62,9 @@
   ],
   "shortcuts": [
     {
+      icons: [
+        "src": "/assets/logo-96.png"
+      ],
       "name": "{{ site.acc.shortcut.name }}",
       "url": "{{ site.acc.shortcut.url }}",
       "description": "{{ site.acc.shortcut.desc }}"
