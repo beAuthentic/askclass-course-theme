@@ -1,5 +1,6 @@
 {%- if session_data.points or session_data.due -%}
-<table style="width: max-content">
+<table style="width: max-content; table-layout: auto; white-space: nowrap">
+  <tbody>
   {%- if session_data.points -%}
   <tr>
     <td>Points</td>
@@ -12,5 +13,6 @@
     <td>{{ session_data.due | date: '%B %d, %Y' }}</td>
   </tr>
   {%- endif -%}
+  </tbody>
 </table>
 {%- endif -%}
