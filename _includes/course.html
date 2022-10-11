@@ -63,18 +63,19 @@
 <script defer>
   const due = document.querySelectorAll('.due');
   const rocket = document.querySelectorAll('.rocket');
-  due.forEach( el => {
-      const d = new Date(el.dataset.date.split('-')).getTime();
-      if (d < Date.now()) {
-        el.classList.add('past');
-      }
-    });
-  rocket.forEach( el => {
-      if (el.dataset.date) {
-        const d = new Date(el.dataset.date.split('-')).getTime();
-        if (d < Date.now()) {
-          el.innerText = 'rocket';
-        }
-      }
-    });
+  const ymd2ms = d => {
+    const ymd = d.split('-');
+    ymd[1]--;
+    return new Date(...ymd).getTime();
+  };
+  due.forEach( el =>
+    ymd2ms(el.dataset.date) < Date.now() &&
+      el.classList.add('past')
+  );
+
+  rocket.forEach( el =>
+    el.dataset.date &&
+      ymd2ms(el.dataset.date) < Date.now() &&
+        (el.innerText = 'rocket')
+  );
 </script>

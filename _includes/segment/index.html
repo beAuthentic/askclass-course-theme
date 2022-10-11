@@ -49,10 +49,13 @@
 
 <script defer>
   const due = document.querySelectorAll('.alarm');
-  due.forEach( el => {
-      const d = new Date(el.dataset.date.split('-')).getTime();
-      if (d < Date.now()) {
-        el.parentNode.removeChild(el);
-      }
-    });
+  const ymd2ms = d => {
+    const ymd = d.split('-');
+    ymd[1]--;
+    return new Date(...ymd).getTime();
+  };
+  due.forEach( el =>
+    ymd2ms(el.dataset.date) < Date.now() &&
+      el.parentNode.removeChild(el)
+  );
 </script>
