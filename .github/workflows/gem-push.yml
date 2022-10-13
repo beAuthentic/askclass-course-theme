@@ -48,7 +48,7 @@ jobs:
           gem push --key=rubygems ${{ steps.name.outputs.NAME }}-*.gem
 
       - name: Version PR
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request
         with:
           commit-message: Update to ${{ steps.version.outputs.NEW }}
           title: Update ${{ steps.name.outputs.NAME }} (${{ steps.version.outputs.NEW }})
@@ -56,7 +56,7 @@ jobs:
           branch: update-version
           base: main
 
-      - uses: actions/delete-package-versions@v3
+      - uses: actions/delete-package-versions
         with:
           package-name: 'askclass-course-theme'
           min-versions-to-keep: 5
