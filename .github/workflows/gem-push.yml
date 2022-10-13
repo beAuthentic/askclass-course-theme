@@ -56,7 +56,7 @@ jobs:
           branch: update-version
           base: main
 
-      - uses: actions/delete-package-versions
+      - uses: actions/delete-package-versions@v3
         with:
           package-name: 'askclass-course-theme'
           min-versions-to-keep: 5
