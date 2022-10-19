@@ -1,0 +1,6 @@
+{% for i in include.images %}
+  <img width="100%" src="{{ i.src }}" alt="{{ i.desc }}" />
+  {% assign _size = include.images | size %}
+  {% if forloop.index != _size %}<hr />{% endif %}
+{% endfor %}
+

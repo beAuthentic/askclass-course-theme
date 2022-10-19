@@ -11,6 +11,8 @@
 
     <section class="center-align spacer content">
       <article>
+        {% include session/images.html images=session_data.images %}
+
         {% include session/points.html %}
 
         {% include session/videos.html videos=session_data.videos %}

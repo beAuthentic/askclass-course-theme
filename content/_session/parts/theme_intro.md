@@ -82,9 +82,11 @@ Key         | Description
 `header`    | Header for the session usually part of a series (e.g. `Session 1`)
 `sequence`  | An optional sequence number (e.g. `3`)
 `url`       | Link to the content of this session
+`images`    | Array of `src` & `desc` for main image(s) to display
 `videos`    | Arrray of YouTube video IDs to render at the top of the session
 `due`       | A date that this assignment or quiz is due (e.g. `2022-10-10`)
 `points`    | Optional value of this assignment (e.g. `30`)
+`part`      | OPtional partition identifier for current lession (e.g. `1`)
 
 <sub>Folder</sub>
 ### `content/_segment`

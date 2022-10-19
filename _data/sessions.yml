@@ -14,6 +14,9 @@ session-02:
   header: 'Session 2'
   sequence: 2
   url: 'session-02'
+  images:
+    - desc: AskClass Logo
+      src: /assets/logo.svg
 
 assignment-01:
   segment: 'week-01'
