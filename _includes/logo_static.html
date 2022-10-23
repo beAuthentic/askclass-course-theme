@@ -13,13 +13,12 @@
   window.onscroll = () => {
     const top = window.pageYOffset;
     if (window.innerHeight + top >= document.body.offsetHeight - 2) {
-      e.style.opacity = 1;
-      e.style.top = 'unset';
-      e.style.bottom = '70px';
+      e.classList.add('bottom');
+    } else if (top > 100) {
+      e.classList.remove('bottom');
+      e.classList.add('fixed');
     } else {
-      e.style.top = '5px';
-      e.style.bottom = 'unset';
-      e.style.opacity = top > 100 ? 0.5 : 1;
+      e.classList.remove('fixed');
     }
   }
 </script>

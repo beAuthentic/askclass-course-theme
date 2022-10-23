@@ -151,17 +151,29 @@ sub {
 .course-id {
   @include align-middle();
   font-family: var(--font-special);
-  flex-direction: row-reverse;
-  position: fixed;
-  top: 5px;
-  right: 5px;
+  flex-direction: column;
   a {
     color: var(--color-theme);
     display: flex;
-    margin-left: 5px;
+    margin: 0 5px;
   }
   & a:nth-child(2) {
-    margin-top: 3px;
+    margin: 3px 0;
+  }
+  &.fixed {
+    flex-direction: row-reverse;
+    position: fixed;
+    right: 5px;
+    top: 5px;
+    opacity: 0.8;
+    img {
+      transform: scale(0.6);
+    }
+    &.bottom {
+      opacity: 1;
+      bottom: 70px;
+      top: unset;
+    }
   }
 }
 
