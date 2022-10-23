@@ -1,5 +1,9 @@
 {% for v in include.videos %}
-  {% include session/youtube.html id=v %}
+  {% if v contains '://' %}
+    {% include session/googledrive.html src=v %}
+  {% else %}
+    {% include session/youtube.html id=v %}
+  {% endif %}
   {% assign _size = include.videos | size %}
   {% if forloop.index != _size %}<hr />{% endif %}
 {% endfor %}
