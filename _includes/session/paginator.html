@@ -9,21 +9,31 @@
 {%- assign _next_segment = segment_data.items[_nidx] -%}
 {%- assign _next_item = site.data.sessions[_next_segment] -%}
 
+{%- unless _next_item -%}
+  {%- assign _next_segment = site.data.syllabus[next].items[0] -%}
+  {%- assign _next_item = site.data.sessions[_next_segment] -%}
+{%- endunless -%}
+
 {%- if _index > 0 -%}
   {%- assign _pidx = _index | minus: 1 -%}
   {%- assign _prev_segment = segment_data.items[_pidx] -%}
   {%- assign _prev_item = site.data.sessions[_prev_segment] -%}
 {%- endif -%}
 
+{%- unless _prev_item -%}
+  {%- assign _prev_segment = site.data.syllabus[prev].items[-1] -%}
+  {%- assign _prev_item = site.data.sessions[_prev_segment] -%}
+{%- endunless -%}
+
 <section class="spacer center-align">
 
   {%- include segment/nav.html segment=session_data.segment -%}
-  <div>
+  <center>
     {%- if session_data.header -%}
-      {{ session_data.header }} &bull;&nbsp;
+      <small>{{ session_data.header }}</small><br/>
     {%- endif -%}
     {{ session_data.title }}
-  </div>
+  </center>
 
   <div class="paginator-container spacer">
   {%- include session/next_prev.html p="previous" item=_prev_item -%}
