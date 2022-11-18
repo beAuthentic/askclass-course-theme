@@ -125,9 +125,6 @@ sub {
   align-items: center;
   text-decoration: none;
   text-align: center;
-  img {
-    margin-right: 5px;
-  }
 }
 @mixin align-center() {
   display: flex;
