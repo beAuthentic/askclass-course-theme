@@ -1,5 +1,5 @@
 week-01:
-  title: 'Segment 1'
+  title: "Segment 1"
   desc: "Theme's overview"
   segment: ['segment', 1]
   begin: 2022-10-03
@@ -21,3 +21,12 @@ week-02:
     - session-03
     - assignment-02
     - quiz-01
+
+week-03:
+  title: "Segment 3"
+  desc: "Conversations"
+  segment: ['segment', 3]
+  theme: c5
+  items:
+    - dialog-01
+    - dialog-02

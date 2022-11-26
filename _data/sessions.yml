@@ -57,3 +57,22 @@ quiz-01:
   url: 'quiz-01'
   due: 2022-10-17
   points: 60
+
+dialog-01:
+  segment: 'week-03'
+  title: 'Making Conversations'
+  type: 'Dialog'
+  icon: forum
+  sequence: 1
+  header: 'Conversation'
+  url: 'dialog-01'
+
+dialog-02:
+  segment: 'week-03'
+  title: 'Continuing the Dialog'
+  type: 'Dialog'
+  icon: forum
+  width: max
+  sequence: 2
+  header: 'Conversation'
+  url: 'dialog-02'

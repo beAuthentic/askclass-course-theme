@@ -1,0 +1,9 @@
+{%- for text in include.data -%}
+  {%- assign lr = forloop.index | modulo: 2 %}
+  {%- if lr == 0 -%}
+    {%- assign side = 'right' -%}
+  {%- else -%}
+    {%- assign side = 'left' -%}
+  {%- endif -%}
+  {% include session/bubble.html text=text side=side index=forloop.index %}
+{%- endfor -%}

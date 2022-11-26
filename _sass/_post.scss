@@ -6,13 +6,15 @@
 }
 
 article {
-  max-width: var(--content-width);
   width: 100%;
   display: flex;
   flex-direction: column;
   overflow-wrap: break-word;
   word-break: break-word;
-  h1, h2, h3, h4 {
+  &.max-width {
+    max-width: var(--content-width);
+  }
+  h1, h2, h3, h4, .bubble-container {
     font-family: var(--font-special);
     margin-bottom: 0;
   }

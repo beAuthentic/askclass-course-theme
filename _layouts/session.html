@@ -1,6 +1,9 @@
-{% assign session_id = page.id | split: '/' | last %}
-{% assign session_data = site.data.sessions[session_id] %}
-{% assign segment_data = site.data.syllabus[session_data.segment] %}
+{%- assign session_id = page.id | split: '/' | last -%}
+{%- assign session_data = site.data.sessions[session_id] -%}
+{%- assign segment_data = site.data.syllabus[session_data.segment] -%}
+{%- if session_data.width != 'max' -%}
+  {%- assign max_width = 'max-width' -%}
+{%- endif -%}
 
 <!doctype html>
 <html lang="en">
@@ -10,19 +13,20 @@
     {% include session/header.html %}
 
     <section class="center-align spacer content">
-      <article>
-        {% include session/images.html images=session_data.images %}
-
-        {% include session/points.html %}
-
-        {% include session/videos.html videos=session_data.videos %}
+      <article class="{{ max_width }}">
+        {%- include session/images.html images=session_data.images -%}
+        {%- include session/points.html -%}
+        {%- include session/videos.html videos=session_data.videos -%}
         {{ content }}
+        {%- if page.dialogue -%}
+          {%- include session/conversation.html data=page.dialogue-%}
+        {%- endif -%}
       </article>
     </section>
 
-    {% include session/paginator.html %}
-    {% include session/content_revealer.html %}
-    {% include footer.html %}
-    {% include foot/mathjax.html -%}
+    {%- include session/paginator.html -%}
+    {%- include session/content_revealer.html -%}
+    {%- include footer.html -%}
+    {%- include foot/mathjax.html -%}
   </body>
 </html>

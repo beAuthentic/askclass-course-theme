@@ -2,7 +2,11 @@
   {%- include head/meta.html -%}
   {%- include head/common.html -%}
   {%- if page.collection == 'session' -%}
-  <link rel="stylesheet" href="{{ 'assets/css/session.css' |  relative_url }}" />
+    {%- if session_data.type == 'Dialog' -%}
+      <link rel="stylesheet" href="{{ 'assets/css/dialog.css' |  relative_url }}" />
+    {%- else -%}
+      <link rel="stylesheet" href="{{ 'assets/css/session.css' |  relative_url }}" />
+    {%- endif -%}
   {%- else -%}
   <link rel="stylesheet" href="{{ 'assets/css/segment.css' |  relative_url }}" />
   {%- endif -%}

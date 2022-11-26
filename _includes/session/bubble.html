@@ -1,0 +1,37 @@
+{% assign words = include.text | split: " " %}
+
+<div class="bubble-container {{ include.side }}">
+  <div class="talk-bubble {{ include.side }} tri-right {{ include.side }}-in border round">
+    <div class="talktext">
+      <div class="index">{{ include.index }}</div>
+      {%- for raw in words %}
+        {%- assign w = raw
+          | replace: 'th', '<u>th</u>'
+          | replace: 'Th', '<u>Th</u>'
+          | replace: 'St', '<u>St</u>'
+          | replace: 've', '<u>ve</u>'
+          | replace: 'Ve', '<u>Ve</u>'
+          | replace: 'dr', '<u>dr</u>'
+          | replace: 'Dr', '<u>Dr</u>'
+        %}
+        {%- assign str = w | remove_first: '^' %}
+        {%- if str == w %}
+          {{ w }}
+        {%- else -%}
+          {%- assign word = str
+             | remove_first: '.'
+             | remove_first: ','
+             | remove_first: '!'
+             | remove_first: '?'
+           %}
+          {%- if word == str %}
+            {%- include session/say.html word=word -%}
+          {%- else %}
+            {%- assign punct = str | slice: -1, 1 -%}
+            {%- include session/say.html word=word punct=punct -%}
+          {% endif -%}
+        {% endif -%}
+      {% endfor -%}
+    </div>
+  </div>
+</div>
