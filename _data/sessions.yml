@@ -23,7 +23,7 @@ assignment-01:
   title: "Get AskClass Course Theme Running"
   type: 'Assignment'
   icon: create
-  header: 'Assignment'
+  header: 'Assignment 1'
   url: 'assignment-01'
   due: 2022-10-07
   points: 20
@@ -42,7 +42,7 @@ assignment-02:
   title: "Hosting Your Page on GitHub"
   type: 'Assignment'
   icon: favorite
-  header: 'Assignment'
+  header: 'Assignment 2'
   url: 'assignment-02'
   due: 2022-10-16
   points: 20
@@ -64,7 +64,7 @@ dialog-01:
   type: 'Dialog'
   icon: forum
   sequence: 1
-  header: 'Conversation'
+  header: 'Dialogue 1'
   url: 'dialog-01'
 
 dialog-02:
@@ -74,5 +74,5 @@ dialog-02:
   icon: forum
   width: max
   sequence: 2
-  header: 'Conversation'
+  header: 'Dialogue 2'
   url: 'dialog-02'

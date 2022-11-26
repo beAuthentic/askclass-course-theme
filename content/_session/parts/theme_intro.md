@@ -77,14 +77,15 @@ Key         | Description
 :---:       | :---
 `segment`   | Which segment does this session belong to (see `course.yml` above)
 `title`     | The title of this session
-`type`      | Alternative `session_tag` that overrides `course.yml`'s tag
-`icon`      | Icon on the index page or replaces the sequence number (see [Material Symbols] for details)
 `header`    | Header for the session usually part of a series (e.g. `Session 1`)
-`sequence`  | An optional sequence number (e.g. `3`)
 `url`       | Link to the content of this session
-`images`    | Array of `src` & `desc` for main image(s) to display
-`videos`    | Arrray of YouTube video IDs to render at the top of the session
-`due`       | A date that this assignment or quiz is due (e.g. `2022-10-10`)
+`type`      | Optional alternate `session_tag` that overrides `course.yml`'s tag
+`icon`      | Optional icon on the index page or replaces the sequence number (see [Material Symbols] for details)
+`sequence`  | Optional sequence number (e.g. `3`)
+`width`     | Optional setting to use screen's width for content (only value: `max`)
+`images`    | Optional array of `src` & `desc` for main image(s) to display
+`videos`    | Optional arrray of YouTube video IDs to render at the top of the session
+`due`       | OPtional date that this assignment or quiz is due (e.g. `2022-10-10`)
 `points`    | Optional value of this assignment (e.g. `30`)
 `part`      | OPtional partition identifier for current lession (e.g. `1`)
 
