@@ -37,6 +37,8 @@ article {
   }
   pre {
     margin: 0;
+    width: 100%;
+    overflow-x: auto;
     code {
       border: 0;
       background-color: inherit;

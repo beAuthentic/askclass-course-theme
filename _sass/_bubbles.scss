@@ -280,6 +280,7 @@ html {
   text-align: left;
   font-size: calc(20px + (30 - 10) * ((100vw - 500px) / (1600 - 300)));
   line-height: calc(30px + (12 - 0) * ((100vw - 500px) / (600 - 10)));
+  font-family: var(--font-tertiary);
 }
 .talktext .index {
   position: absolute;
