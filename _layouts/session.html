@@ -2,7 +2,7 @@
 {%- assign session_data = site.data.sessions[session_id] -%}
 {%- assign segment_data = site.data.syllabus[session_data.segment] -%}
 {%- if session_data.width != 'max' -%}
-  {%- assign max_width = 'max-width' -%}
+  {%- assign constraint = 'max-width' -%}
 {%- endif -%}
 
 <!doctype html>
@@ -13,7 +13,7 @@
     {% include session/header.html %}
 
     <section class="center-align spacer content">
-      <article class="{{ max_width }}">
+      <article class="{{ constraint }}">
         {%- include session/images.html images=session_data.images -%}
         {%- include session/points.html -%}
         {%- include session/videos.html videos=session_data.videos -%}
