@@ -57,7 +57,7 @@ jobs:
           base: main
 
       - name: Trim old packages
-        uses: actions/delete-package-versions@v3
+        uses: actions/delete-package-versions@v4
         with:
           package-name: 'askclass-course-theme'
           min-versions-to-keep: 5
