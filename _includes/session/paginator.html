@@ -26,17 +26,17 @@
 {%- endunless -%}
 
 <section class="spacer center-align">
-
-  {%- include segment/nav.html segment=session_data.segment -%}
-  <center>
-    {%- if session_data.header -%}
-      <small>{{ session_data.header }}</small><br/>
-    {%- endif -%}
-    {{ session_data.title }}
-  </center>
-
   <div class="paginator-container spacer">
   {%- include session/next_prev.html p="previous" item=_prev_item -%}
   {%- include session/next_prev.html p="next" item=_next_item -%}
   </div>
+
+  <center>
+    {%- if session_data.header -%}
+      <small class='special'>{{ session_data.header }}</small><br/>
+    {%- endif -%}
+    {{ session_data.title }}
+  </center>
+
+  {%- include segment/nav.html segment=session_data.segment -%}
 </section>
