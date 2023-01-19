@@ -1,6 +1,18 @@
+ul, ol {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  padding-inline-start: 1em;
+  blockquote {
+    padding-left: 0.5em;
+    margin: 0 0.5em;
+  }
+}
+ul ::marker {
+  color: var(--color-dark);
+}
 ol > li {
   ul > li {
-    list-style-type: disc;
+    list-style-type: initial;
   }
   ol > li {
     list-style: lower-alpha;
@@ -8,8 +20,8 @@ ol > li {
 }
 
 ul > li > ul > li {
-  list-style-type: square;
+  list-style-type: initial;
   ul > li {
-    list-style-type: circle;
+    list-style-type: initial;
   }
 }

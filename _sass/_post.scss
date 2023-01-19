@@ -14,9 +14,19 @@ article {
   &.max-width {
     max-width: var(--content-width);
   }
-  h1, h2, h3, h4, .bubble-container {
-    font-family: var(--font-special);
+  .bubble-container {
     margin-bottom: 0;
+    font-family: var(--font-special);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.2em;
+    font-family: var(--font-main);
+  }
+  h1, h2, h3 {
+    font-weight: 300;
+  }
+  h4, h5, h6 {
+    font-weight: 500;
   }
   h1 {
     & + time {
@@ -32,6 +42,12 @@ article {
       font-size: 0.8em;
     }
   }
+  h2 { font-size: 1.9em; }
+  h3 { font-size: 1.7em; }
+  h4 { font-size: 1.4em; }
+  h5 { font-size: 1.2em; }
+  h6 { font-size: 1.1em; }
+
   code {
     @include boxed();
   }
@@ -87,16 +103,31 @@ article {
 }
 
 blockquote {
-  border-left: 5px solid var(--color-dark);
+  border-left: 2px solid var(--color-dark);
   padding-left: 10px;
   margin: 0 10px 0 20px;
-  font-family: var(--font-special);
-  font-size: 19px;
+  font-weight: 300;
   p {
     margin: 0;
   }
   & + blockquote {
     margin-bottom: 2em;
+  }
+}
+
+dl {
+  font-weight: 300;
+  dt {
+    margin-top: 0.7em;
+    font-weight: 500;
+  }
+  dd {
+    margin-left: 1em;
+  }
+  &.poem dd {
+    margin-right: 1em;
+    padding-left: 1em;
+    text-indent: -1em;
   }
 }
 
