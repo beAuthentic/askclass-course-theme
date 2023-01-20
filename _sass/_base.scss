@@ -1,4 +1,6 @@
 :root {
+  --icon-logo:          #{$icon-logo};
+
   --font-special:       #{$font-special};
   --font-mono:          #{$font-mono};
   --font-main:          #{$font-main};
@@ -96,6 +98,7 @@ code {
 pre {
   background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
   padding: 10px;
+  box-sizing: border-box;
   code {
     color: inherit;
   }
