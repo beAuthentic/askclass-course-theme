@@ -60,3 +60,5 @@ jobs:
         uses: actions/delete-package-versions@v4
         with:
           package-name: ${{ steps.name.outputs.NAME }}
+          package-type: rubygems
+          min-versions-to-keep: 5
