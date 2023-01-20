@@ -55,7 +55,7 @@ acc:
   # Donot change the below (will figure something out later)
   font_families:
     - Teko
-    - Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700
+    - Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,700
     - Josefin+Sans
     - Share+Tech+Mono
     - Lexend
