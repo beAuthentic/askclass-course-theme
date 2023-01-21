@@ -2,6 +2,7 @@ name: Version auto-merge
 on:
   pull_request:
     branches: ['update-version']
+  workflow_dispatch:
 
 permissions:
   contents: write
