@@ -1,7 +1,6 @@
 name: Version auto-merge
 on:
   pull_request:
-    branches: ['update-version']
   workflow_dispatch:
 
 permissions:
@@ -11,7 +10,7 @@ permissions:
 jobs:
   version-update:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'github-actions[bot]' }}
+    if: ${{ github.actor == 'github-actions[bot]' && github.ref_name == 'update-version' }}
     steps:
       - name: Merge new version
         run: gh pr merge --auto --merge "$PR_URL"
