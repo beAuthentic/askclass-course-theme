@@ -15,9 +15,7 @@ jobs:
     if: ${{ github.actor == 'pham' && github.event.pull_request.head.ref == 'update-version' }}
     steps:
       - name: Merge new version
-        run: |
-          gh pr review --approve $PR_URL
-          gh pr merge -ds --auto $PR_URL
+        run: gh pr merge -ds --auto $PR_URL
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
