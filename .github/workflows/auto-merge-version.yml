@@ -15,8 +15,8 @@ jobs:
     #if: ${{ github.actor == 'github-actions[bot]' }}
     steps:
       - run: |
-          echo "${{ github.actor }}"
-          echo "${{ github.ref_name }}"
+          echo "${{ github.actor }} ${{ github.event.pull_request.title }}"
+          echo "${{ github.ref }} ${{ github.event.pull_request.head.ref }}"
 
       - name: Merge new version
         run: echo "gh pr merge --auto --merge $PR_URL"
