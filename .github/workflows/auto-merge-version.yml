@@ -10,7 +10,7 @@ permissions:
 jobs:
   version-update:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'github-actions[bot]' }}
+    #if: ${{ github.actor == 'github-actions[bot]' }}
     steps:
       - name: Merge new version
         run: gh pr merge --auto --merge "$PR_URL"
