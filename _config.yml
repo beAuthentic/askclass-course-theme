@@ -4,6 +4,8 @@ description: >
   Organize your analog or digital course using this template
   to make the syllabus and content easy to read and mobile.
 
+ignore_theme_config: false
+
 acc:
   date_format: "%b %d, %y"
   short_name: "AC Course"
@@ -52,7 +54,6 @@ acc:
     - icon: "toys"
       href: "https://app.askclass.com"
       text: "Icebreakers"
-  # Donot change the below (will figure something out later)
   font_families:
     - Teko
     - Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,700
@@ -84,6 +85,7 @@ defaults:
 
 sass:
   style: compact
+  sourcemap: never
 
 include:
   - index.html
