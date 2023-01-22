@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "askclass-course-theme"
-  spec.version       = "0.13.2"
+  spec.version       = "0.13.3"
   spec.authors       = ["AskClass"]
   spec.email         = ["team@askclass.com"]
 
