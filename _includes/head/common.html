@@ -1,5 +1,5 @@
 {% assign acc = site.acc %}
-{% assign desc = page.excerpt | default: site.description | strip_html | strip_newlines %}
+{% assign desc = page.description | default: site.description | strip_html | strip_newlines %}
 {% assign assets = '/assets/' | prepend: site.url %}
 {% assign families = acc.font_families | join: "&family=" %}
 {% assign og_image = acc.meta.og_image | prepend: assets %}
