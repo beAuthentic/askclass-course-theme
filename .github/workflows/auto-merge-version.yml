@@ -12,8 +12,9 @@ permissions:
 jobs:
   version-update:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'pham' && github.event.pull_request.head.ref == 'update-version' }}
+    if: ${{ github.event.pull_request.head.ref == 'update-version' }}
     steps:
+      - run: echo "${{ github.actor }}"
       - name: Merge new version
         run: gh pr merge -ds --auto $PR_URL
         env:
