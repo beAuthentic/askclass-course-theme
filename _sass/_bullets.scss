@@ -11,7 +11,7 @@ ul, ol {
   }
 }
 ol ::marker, ul ::marker {
-  color: var(--color-dark);
+  color: var(--color-bullet);
 }
 ol > li {
   ul > li {
