@@ -18,11 +18,19 @@ Last header is special, `<h6>` has a dark theme.
 
 ### Quotations
 
-Quotations begin with a `>`. To separate the lines put a space between lines prefixed with `>` or use `<br/>`.
+Quotations begin with a `>`. To add a line-break use `<br/>`.
 
 > Thus conscience does make cowards of us all.
+> <br/>&mdash; Shakespeare
 
-> &mdash; Shakespeare
+Space them between a blank line to add a small gap:
+
+> As the death-bed whereon it must expire
+> <br/>Consumed with that which it was nourish’d by.
+
+> This thou perceivest, which makes thy love more strong,
+> <br/>To love that well which thou must leave ere long.
+
 
 ----
 
@@ -160,6 +168,28 @@ _Note:_ You need to make the screen narrower to see the hanging indentation.
   <dd>Must give us pause: there's the respect</dd>
   <dd>That makes calamity of so long life;</dd>
 </dl>
+
+----
+
+### Blocks of Texts
+
+Normal code block will not wrap `white-space`.
+```
+<html>
+  <head>
+    <title>AskClass Theme</title>
+  </head>
+  <body>
+    Welcome friend!
+  </body>
+</html>
+```
+
+If you want to wrap `white-space` use `<pre>`:
+
+<pre>
+In me thou see’st the glowing of such fire \ That on the ashes of his youth doth lie, \ As the death-bed whereon it must expire \ Consumed with that which it was nourish’d by.
+</pre>
 
 <hr class='logo' />
 
