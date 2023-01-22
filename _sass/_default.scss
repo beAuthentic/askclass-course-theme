@@ -5,6 +5,7 @@ $font-mono:             'Share Tech Mono', monospace;
 $font-special:          'Josefin Sans', sans-serif;
 $font-secondary:        'Teko', sans-serif;
 $font-tertiary:         'Lexend', sans-serif;
+$font-samp:             $font-main;
 
 $color-primary:         white;
 $color-secondary:       floralwhite;
@@ -24,6 +25,7 @@ $color-card-bg:         whitesmoke;
 $color-card-fg:         #444;
 
 $card-font-size:        16px;
+$samp-font-size:        inherit;
 
 $content-width:         600px;
 

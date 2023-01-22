@@ -95,8 +95,8 @@ article {
     }
     &.section {
       text-align: center;
-      line-height: 1px;
-      height: 3px;
+      line-height: 0;
+      height: 5px;
       font-size: 54px;
       overflow: visible;
       &:after {
@@ -170,8 +170,8 @@ dl {
 
 samp {
   filter: blur(4px);
-  font-family: var(--font-special);
-  font-size: 18px;
+  font-family: var(--font-samp);
+  font-size: var(--samp-font-size);
   cursor: pointer;
   &.on {
     filter: none;

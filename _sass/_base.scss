@@ -6,6 +6,7 @@
   --font-main:          #{$font-main};
   --font-secondary:     #{$font-secondary};
   --font-tertiary:      #{$font-tertiary};
+  --font-samp:          #{$font-samp};
 
   --color-bg:           #{$color-bg};
   --color-fg:           #{$color-fg};
@@ -28,6 +29,7 @@
   --grid-width:         #{$grid-width};
   --grid-image-height:  #{$grid-image-height};
   --card-font-size:     #{$card-font-size};
+  --samp-font-size:     #{$samp-font-size};
 }
 
 body {
