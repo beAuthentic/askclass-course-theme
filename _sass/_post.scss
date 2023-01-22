@@ -42,7 +42,7 @@ article {
       font-size: 0.8em;
     }
   }
-  h2 { font-size: 1.9em; }
+  h2 { font-size: 2.0em; }
   h3 { font-size: 1.7em; }
   h4 { font-size: 1.4em; }
   h5 { font-size: 1.2em; }
@@ -55,12 +55,14 @@ article {
     margin: 0;
     width: 100%;
     overflow-x: auto;
+    white-space: pre-wrap;
     code {
       border: 0;
       background-color: inherit;
       border-radius: 0;
       padding: 0;
       margin: 0;
+      white-space: pre;
     }
   }
   p:has(> sub) {
@@ -138,7 +140,7 @@ article {
 }
 
 blockquote {
-  border-left: 2px solid var(--color-dark);
+  border-left: 2px solid var(--color-bullet);
   padding-left: 10px;
   margin: 0 10px 0 20px;
   font-weight: 300;
@@ -146,7 +148,7 @@ blockquote {
     margin: 0;
   }
   & + blockquote {
-    margin-bottom: 2em;
+    margin-top: 10px;
   }
 }
 
