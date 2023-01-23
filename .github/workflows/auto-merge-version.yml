@@ -1,7 +1,9 @@
 name: Version auto-merge
 on:
   pull_request:
-    types: [opened, review_requested, edited]
+    types:
+      - opened
+      - edited
 
   workflow_dispatch:
 
@@ -12,9 +14,11 @@ permissions:
 jobs:
   version-update:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.head.ref == 'update-version' }}
+    #if: ${{ github.event.pull_request.head.ref == 'update-version' }}
     steps:
-      - run: echo "${{ github.actor }}"
+      - run: |
+          echo "${{ github.actor }}"
+          echo "${{ github.event.pull_request.head.ref }}"
       - name: Merge new version
         run: gh pr merge -ds --auto $PR_URL
         env:
