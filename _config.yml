@@ -45,15 +45,15 @@ acc:
       educator,
       university
   footer:
-    - icon: "copyright"
-      href: "https://askclass.com"
+    - href: "https://askclass.com"
       text: "AskClass"
-    - icon: "newspaper"
-      href: "https://news.askclass.com"
+    - href: "https://news.askclass.com"
       text: "News"
-    - icon: "toys"
-      href: "https://app.askclass.com"
-      text: "Icebreakers"
+    - href: "https://app.askclass.com"
+      text: "Classroom OS"
+    - href: "https://github.com/beAuthentic/askclass-course-theme"
+      text: "GitHub"
+      icon: "electric_bolt"
   font_families:
     - Teko
     - Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,700
