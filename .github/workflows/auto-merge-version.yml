@@ -1,7 +1,5 @@
 name: Version auto-merge
-on:
-  pull_request:
-    types: [opened, edited, labeled]
+on: pull_request
 
 permissions:
   contents: write
