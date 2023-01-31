@@ -1,11 +1,7 @@
 name: Version auto-merge
 on:
   pull_request:
-    types:
-      - opened
-      - edited
-
-  workflow_dispatch:
+    types: [opened, edited, labeled]
 
 permissions:
   contents: write
