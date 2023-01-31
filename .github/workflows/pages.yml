@@ -24,7 +24,7 @@ jobs:
 
       - name: Stamp version
         run: |
-          sed -e "s/GitHub/v$(grep spec.version *.gemspec | cut -d\" -f2)/" _config.yml
+          sed -i -e "s/GitHub/v$(grep spec.version *.gemspec | cut -d\" -f2)/" _config.yml
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@c4fe7bd15ddbfcd5e07e47bf2f2cae90581d6091 # v1.115.3
@@ -37,13 +37,11 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Build with Jekyll
-        # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
 
       - name: Upload artifact
-        # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v1
 
   deploy:
