@@ -1,5 +1,5 @@
 <head>
-  {%- include head/meta.html -%}
+  {% include head/meta.html -%}
   {%- include head/common.html -%}
   {%- if page.collection == 'session' -%}
     {%- if session_data.type == 'Dialog' -%}
@@ -9,5 +9,5 @@
     {%- endif -%}
   {%- else -%}
   <link rel="stylesheet" href="{{ 'assets/css/segment.css' |  relative_url }}" />
-  {%- endif -%}
+  {% endif %}
 </head>
