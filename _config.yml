@@ -26,7 +26,7 @@ acc:
     sizes: [ 48, 96, 144, 192, 300, 512 ]
   shortcuts:
     - name: Syllabus
-      url: https://acc.askclass.com/session/session-01
+      url: /session/session-01
       desc: Class syllabus and contact information
   meta:
     apple_icon: "logo-300.png"

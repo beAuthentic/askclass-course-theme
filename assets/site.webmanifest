@@ -20,7 +20,12 @@
     {
       "name": "{{ sc.name }}",
       "url": "{{ sc.url }}",
-      "description": "{{ sc.desc }}"
+      "description": "{{ sc.desc }}",
+      "icons": [{
+        "src": "/assets/logo-96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+      }]
     }{%- if forloop.index != forloop.length %},{%- endif %}
     {%- endfor %}
   ],
