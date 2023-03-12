@@ -76,3 +76,13 @@ dialog-02:
   sequence: 2
   header: 'Dialogue 2'
   url: 'dialog-02'
+
+audio-01:
+  segment: 'week-03'
+  title: 'Play Audio File'
+  type: 'Audio'
+  icon: play_arrow
+  header: 'Listen'
+  url: 'audio-01'
+  audio:
+    - /assets/audio/appreciation.mp3

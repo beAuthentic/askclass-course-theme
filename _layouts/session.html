@@ -17,6 +17,7 @@
         {%- include session/images.html images=session_data.images -%}
         {%- include session/points.html -%}
         {%- include session/videos.html videos=session_data.videos -%}
+        {%- include session/audio.html audio=session_data.audio -%}
         {{ content }}
         {%- if page.dialogue -%}
           {%- include session/conversation.html data=page.dialogue-%}
@@ -28,5 +29,6 @@
     {%- include session/content_revealer.html -%}
     {%- include footer.html -%}
     {%- include foot/mathjax.html -%}
+    <script async src="/assets/js/essential-audio-player.js"></script>
   </body>
 </html>
