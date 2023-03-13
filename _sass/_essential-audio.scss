@@ -83,7 +83,7 @@ div.essential_audio > div:nth-child(2):after {
   content: "";
   position: absolute;
   z-index: 0;
-  background-color: var(--color-link);
+  background-color: #000;
   opacity: 0.3;
   mix-blend-mode: multiply;
   top: 0px;
@@ -95,7 +95,7 @@ div.essential_audio > div:nth-child(2):after {
 
 /* 4. The Loading Progress Bar */
 div.essential_audio > div:nth-child(2) div {
-  background-color: #666;
+  background-color: var(--color-link);
   mix-blend-mode: multiply;
 }
 

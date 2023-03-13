@@ -1,0 +1,6 @@
+{% for audio in include.audio %}
+  <div class='essential_audio' data-url='{{ audio }}'></div>
+
+  {%- assign _size = include.audio | size %}
+  {% if forloop.index != _size %}<br /><br />{% endif -%}
+{% endfor %}

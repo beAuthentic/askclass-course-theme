@@ -85,6 +85,7 @@ Key         | Description
 `width`     | Optional setting to use screen's width for content (only value: `max`)
 `images`    | Optional array of `src` & `desc` for main image(s) to display
 `videos`    | Optional arrray of YouTube video IDs to render at the top of the session
+`audio`     | Optional array of audio files to render at top of session
 `due`       | OPtional date that this assignment or quiz is due (e.g. `2022-10-10`)
 `points`    | Optional value of this assignment (e.g. `30`)
 `part`      | OPtional partition identifier for current lession (e.g. `1`)
