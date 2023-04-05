@@ -48,7 +48,7 @@ jobs:
           gem push --key=rubygems ${{ steps.name.outputs.NAME }}-*.gem
 
       - name: Version PR
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           commit-message: Update to ${{ steps.version.outputs.NEW }}
           title: Update ${{ steps.name.outputs.NAME }} (${{ steps.version.outputs.NEW }})
