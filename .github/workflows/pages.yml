@@ -27,7 +27,7 @@ jobs:
           sed -i -e "s/GitHub/v$(grep spec.version *.gemspec | cut -d\" -f2)/" _config.yml
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.115.3
+        uses: ruby/setup-ruby@6cecb48364174b0952995175c55f9bf5527e6682 # v1.115.3
         with:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
