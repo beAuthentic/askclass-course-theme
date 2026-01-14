@@ -45,6 +45,12 @@
       "sizes": "300x300"
     },
     {
+      "src": "logo-512.png",
+      "type": "image/png",
+      "sizes": "312x312",
+      "purpose": "any"
+    },
+    {
       "src": "logo-icon.svg",
       "type": "image/svg+xml",
       "sizes": "any",
@@ -53,6 +59,7 @@
   ],
   "display_override": [
     "standalone",
-    "fullscreen"
+    "fullscreen",
+    "window-controls-overlay"
   ]
 }
