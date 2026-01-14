@@ -1,3 +1,5 @@
+@use "tab-colors" as *;
+
 @mixin special() {
   color: var(--color-card-bg, 'whitesmoke');
   font-family: var(--font-special);
@@ -41,8 +43,8 @@
     display: block;
     font-size: 12px;
   }
-  &.material-symbols-outlined {
-    font-family: 'Material Symbols Outlined';
+  &.icon {
+    font-family: var(--icon-name);
     line-height: 0.7;
     font-size: 37px;
   }
@@ -69,6 +71,34 @@
   padding: 10px;
   overflow: hidden;
   text-align: left;
+  &.limit-height {
+    max-height: var(--grid-body-height);
+    position: relative;
+    overflow-y: auto;
+    padding-bottom: 0;
+    box-sizing: border-box;
+    &::after {
+      content: "";
+      position: sticky;
+      display: block;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30px;
+      opacity: 0;
+      padding: 0;
+      margin: 0;
+      background: linear-gradient(to top,
+        rgba(0, 0, 0, 0.12) 0%,
+        transparent 100%);
+      pointer-events: none;         /* clicks pass through */
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+    &.has-more::after {
+      opacity: 1;
+    }
+  }
   h2 {
     word-break: break-word;
     margin-top: 10px;
@@ -78,10 +108,14 @@
     color: inherit;
     margin: 5px 0;
   }
-  .item:not(:first-child) {
-    border-top: 1px solid;
-  }
   .item {
+    &:not(:first-child) {
+      border-top: 1px solid;
+    }
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
     margin-bottom: 20px;
     text-align: left;
     font-size: var(--card-font-size);
@@ -96,7 +130,7 @@
       border-radius: 5px;
       margin: 0 3px;
       padding: 2px 5px;
-      .material-symbols-outlined {
+      .icon {
         font-size: 1.3em;
         font-variation-settings: 'FILL' 1;
       }
@@ -128,7 +162,7 @@
       padding: 5px 10px;
       color: white!important;
       background-color: var(--color-card-fg);
-      .material-symbols-outlined {
+      .rocket {
         font-variation-settings: 'FILL' 1;
       }
     }
@@ -141,4 +175,3 @@
   }
 }
 
-@import "tab-colors";

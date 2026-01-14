@@ -1,3 +1,5 @@
 ---
 ---
-@import "grid", "default", "init", "base";
+@use "base" as *;
+@use "grid" as *;
+@use "init" as *;

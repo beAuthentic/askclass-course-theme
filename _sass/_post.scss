@@ -1,3 +1,10 @@
+@use "bullets" as *;
+@use "table" as *;
+@use "tab-colors" as *;
+@use "paginator" as *;
+@use "video" as *;
+@use "essential-audio" as *;
+
 @mixin boxed() {
   margin-top: 100px;
   border-radius: 5px;
@@ -179,13 +186,18 @@ samp {
   }
 }
 
+.lesson-group {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .lesson-number {
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   padding: 7px 5px 3px 5px;
-  margin: 0 5px;
+  margin: 5px;
   background-color: var(--color-fg);
   font-family: var(--fontText);
   color: var(--color-bg);
@@ -197,10 +209,10 @@ samp {
   &.current {
     background-color: var(--color-secondary);
   }
-  &.material-symbols-outlined {
+  &.icon {
     font-size: 25px;
     padding: 5px;
-    font-family: 'Material Symbols Outlined';
+    font-family: var(--icon-name);
   }
 }
 
@@ -208,11 +220,3 @@ a.lesson-number{
   color: var(--color-fg);
   background-color: var(--color-link);
 }
-
-@import
-  "bullets",
-  "table",
-  "tab-colors",
-  "paginator",
-  "video",
-  "essential-audio";

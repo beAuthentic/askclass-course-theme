@@ -1,3 +1,7 @@
 ---
 ---
-@import "post", "bubbles", "default", "init", "base";
+
+@use "base" as *;
+@use "post" as *;
+@use "bubbles" as *;
+@use "init" as *;
