@@ -1,2 +1,13 @@
-<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script defer
+  src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?version=4.8.0"
+  integrity="sha384-3d4jRKquKl90C9aFG+eH4lPJmtbPHgACWHrp+VomFOxF8lzx2jxqeYkhpRg18UWC"
+  crossorigin="anonymous">
+</script>
+{%- if page.math -%}
+<script async
+  id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@4.1.0/tex-mml-chtml.js"
+  integrity="sha384-pTCnJ6SV7q3Uxsux1a1dYA7psHUmFQB178t6FtIE16r5QY5EibXwxLy9KRzBqM1w"
+  crossorigin="anonymous">
+</script>
+{%- endif %}

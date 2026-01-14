@@ -3,6 +3,17 @@
 
 [GitHub Markdown] syntax are supported including extras such as [Markdown Math].
 
+$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
+
+Requires:
+
+```
+  ---
+  math: true
+  ---
+```
+
+
 ### Supported Header Tags
 Header tags from `h1` to `h6` are supported.
 Though `<h1>` is the largest, it is recommended that you should start with `<h2>` for main general headings.
