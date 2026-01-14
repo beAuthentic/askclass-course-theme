@@ -15,13 +15,13 @@
     {%- include date_range.html info=segment_data -%}
   </div>
 
-  <div class="middle-align">
+  <div class="middle-align lesson-group">
     {%- for item in segment_data.items -%}
       {%- assign _info = site.data.sessions[item] -%}
       {%- if _info.sequence -%}
         {%- assign _mso = '' -%}
       {%- else -%}
-        {%- assign _mso = 'material-symbols-outlined' -%}
+        {%- assign _mso = symbols | append: " icon" -%}
       {%- endif -%}
 
       {%- if item == session_id -%}

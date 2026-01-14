@@ -4,7 +4,7 @@
     {% for item in site.acc.footer -%}
     <li>
       {%- if item.icon -%}
-        <span class="material-symbols-outlined">{{ item.icon }}</span>
+        <span class="{{ symbols }}">{{ item.icon }}</span>
       {%- endif -%}
       <a href="{{ item.href }}">{{ item.text }}</a>
     </li>

@@ -2,6 +2,7 @@
 {%- assign desc = page.description | default: site.description | strip_html | strip_newlines %}
 {%- assign families = acc.font_families | join: "&family=" %}
 {%- assign og_image = acc.meta.og_image | prepend: '/assets/' %}
+{%- assign symbols = acc.icon_class | default: 'material-symbols-outlined' -%}
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />

@@ -17,25 +17,25 @@
       {% if include.icon %}
         {{ site.data.syllabus[prev].title }}
       {% endif %}
-      <a href="/segment/{{ prev }}" class="material-symbols-outlined md-48">navigate_before</a>
+      <a href="/segment/{{ prev }}" class="{{ symbols }} md-48">navigate_before</a>
     {% else %}
       &nbsp;
-      <span class="material-symbols-outlined md-48 md-disabled">navigate_before</span>
+      <span class="{{ symbols }} md-48 md-disabled">navigate_before</span>
     {% endif %}
 
     {% if include.icon %}
-      <a href="/segment/{{ include.segment }}" class="material-symbols-outlined">calendar_today</a>
+      <a href="/segment/{{ include.segment }}" class="{{ symbols }}">calendar_today</a>
     {% else %}
       <a href="/segment/{{ include.segment }}"><h3>{{ site.data.syllabus[include.segment].title }}</h3></a>
     {% endif %}
 
     {% if next %}
-      <a href="/segment/{{ next }}" class="material-symbols-outlined md-48">navigate_next</a>
+      <a href="/segment/{{ next }}" class="{{ symbols }} md-48">navigate_next</a>
       {% if include.icon %}
         {{ site.data.syllabus[next].title }}
       {% endif %}
     {% else %}
-      <span class="material-symbols-outlined md-48 md-disabled">navigate_next</span>
+      <span class="{{ symbols }} md-48 md-disabled">navigate_next</span>
     {% endif %}
   </div>
 </section>

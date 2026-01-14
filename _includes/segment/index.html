@@ -4,7 +4,6 @@
   {%- for item in info.items -%}
     {%- assign session = site.data.sessions[item] -%}
     <li class="card-tab {{ info.theme }}">
-
       {%- if session.type -%}
         <div class="top-bar">{{ session.type }}</div>
       {%- elsif session.sequence -%}
@@ -16,12 +15,12 @@
       {%- if session.sequence -%}
         <div class="tab">{{ session.sequence }}</div>
       {%- elsif session.icon -%}
-        <div class="tab material-symbols-outlined">{{ session.icon }}</div>
+        <div class="tab icon {{ symbols }}">{{ session.icon }}</div>
       {%- endif -%}
 
       {%- if session.due -%}
         <div class="header">
-          <span data-date="{{ session.due }}" class="material-symbols-outlined alarm">alarm_on</span>
+          <span data-date="{{ session.due }}" class="{{ symbols }} alarm">alarm_on</span>
           {{ session.due | date: '%b %e, %y' }}
         </div>
       {%- elsif session.type -%}
