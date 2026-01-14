@@ -1,17 +1,22 @@
 {%- assign course = site.data.course -%}
+
 <ul class="grid">
   {%- for segment in course.segments -%}
     {%- assign info = site.data.syllabus[segment] -%}
     {%- if info -%}
       <li class="card-tab {{ info.theme }}">
         <div class="top-bar">{{ info.segment[0] }}</div>
+        {%- if info.segment[2] -%}
+        <div class="tab icon {{ symbols }}">{{ info.segment[2] }}</div>
+        {%- else -%}
         <div class="tab">{{ info.segment[1] }}</div>
+        {%- endif -%}
         <div class="header">
           <a href="/segment/{{ segment }}">
             {%- include date_range.html info=info -%}
           </a>
         </div>
-        <div class="body">
+        <div class="body limit-height">
           {%- if info.desc -%}
             <h4>{{ info.desc }}</h4>
           {%- endif -%}
@@ -22,20 +27,20 @@
             {%- assign session = site.data.sessions[item] -%}
             <div class="item">
               <div class="middle-align">
-                <span class="material-symbols-outlined">{{ session.icon }}</span>
+                <span class="{{ symbols }}">{{ session.icon }}</span>
                 {%- if session.url -%}
                   <a href="/session/{{ session.url }}" title="{{ session.title }}">
                     <h3>{{ session.header }}</h3>
                   </a>
                 {%- else -%}
-                    <h3>{{ session.header }}</h3>
+                  <h3>{{ session.header }}</h3>
                 {%- endif -%}
               </div>
               {%- if session.due -%}
                 <small class="due"
                   data-date="{{ session.due }}"
                   title="Due {{ session.due | date: site.acc.date_format }}">
-                  <span class="material-symbols-outlined">alarm_on</span>
+                  <span class="icon {{ symbols }}">alarm_on</span>
                   {{ session.due | date: '%b %e' }}
                 </small>
               {%- endif -%}
@@ -52,7 +57,7 @@
           <a class="button" href="/segment/{{ segment }}">
             {{ info.title }}&nbsp;
             <span data-date="{{ info.end }}"
-              class="middle-align material-symbols-outlined rocket">rocket_launch</span>
+              class="middle-align rocket {{ symbols }}">rocket_launch</span>
           </a>
         </div>
       </li>
@@ -78,4 +83,14 @@
       ymd2ms(el.dataset.date) < Date.now() &&
         (el.innerText = 'rocket')
   );
+
+  document.querySelectorAll('.limit-height').forEach(el => {
+    const check = () => {
+      const atBottom = el.scrollHeight - el.scrollTop <= el.clientHeight + 2;
+      el.classList.toggle('has-more', !atBottom);
+    };
+    check(); // run once on load
+    el.addEventListener('scroll', check);
+    new ResizeObserver(check).observe(el);
+  });
 </script>
