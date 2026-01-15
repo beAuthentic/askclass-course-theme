@@ -31,6 +31,9 @@ jobs:
           sed -i -e '/spec.version/c\  spec.version       = "${{ steps.version.outputs.NEW }}"' \
           ${{ steps.name.outputs.NAME }}.gemspec
 
+      - name: Remove non-theme related assets
+        run: rm -rf assets/audio
+
       - name: Build
         run: gem build ${{ steps.name.outputs.NAME }}.gemspec
 
