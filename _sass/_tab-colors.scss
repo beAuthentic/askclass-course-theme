@@ -8,6 +8,16 @@ $color-7: #3C5A14;
 $color-8: #598B2C;
 $color-9: #9B2226;
 $color-10: #B18FCF;
+$color-11: #5F0A87; // Deep Royal Purple
+$color-12: #9D4EDD; // Bright Amethyst
+$color-13: #6F1D1B; // Deep Burnt Umber
+$color-14: #BB3E03; // Rust / Bright Terracotta
+$color-15: #890620; // Wine Red
+$color-16: #D00000; // Classic Crimson
+$color-17: #1B4332; // Deep Forest Green
+$color-18: #74C69D; // Seafoam Mint
+$color-19: #212529; // Rich Charcoal
+$color-20: #495057; // Medium Slate Grey
 
 html {
   --c1: #{$color-1};
@@ -20,6 +30,16 @@ html {
   --c8: #{$color-8};
   --c9: #{$color-9};
   --c10: #{$color-10};
+  --c11: #{$color-11};
+  --c12: #{$color-12};
+  --c13: #{$color-13};
+  --c14: #{$color-14};
+  --c15: #{$color-15};
+  --c16: #{$color-16};
+  --c17: #{$color-17};
+  --c18: #{$color-18};
+  --c19: #{$color-19};
+  --c20: #{$color-20};
 }
 
 @mixin paint($color) {
@@ -81,4 +101,34 @@ html {
 }
 .c10 {
   @include paint($color-10);
+}
+.c11 {
+  @include paint($color-11);
+}
+.c12 {
+  @include paint($color-12);
+}
+.c13 {
+  @include paint($color-13);
+}
+.c14 {
+  @include paint($color-14);
+}
+.c15 {
+  @include paint($color-15);
+}
+.c16 {
+  @include paint($color-16);
+}
+.c17 {
+  @include paint($color-17);
+}
+.c18 {
+  @include paint($color-18);
+}
+.c19 {
+  @include paint($color-19);
+}
+.c20 {
+  @include paint($color-20);
 }
