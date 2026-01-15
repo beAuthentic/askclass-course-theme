@@ -85,6 +85,7 @@ defaults:
       layout: "segment"
 
 sass:
+  implementation: sass-embedded
   style: compact
   sourcemap: never
 

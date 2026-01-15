@@ -1,35 +1,35 @@
-$icon-logo:             url('/assets/logo-icon.svg');
-$icon-name:             'Material Symbols Outlined';
+$icon-logo:             url('/assets/logo-icon.svg') !default;
+$icon-name:             'Material Symbols Outlined' !default;
 
-$font-main:             'Open Sans', sans-serif;
-$font-mono:             'Share Tech Mono', monospace;
-$font-special:          'Josefin Sans', sans-serif;
-$font-secondary:        'Teko', sans-serif;
-$font-tertiary:         'Lexend', sans-serif;
-$font-samp:             $font-main;
+$font-main:             'Open Sans', sans-serif !default;
+$font-mono:             'Share Tech Mono', monospace !default;
+$font-special:          'Josefin Sans', sans-serif !default;
+$font-secondary:        'Teko', sans-serif !default;
+$font-tertiary:         'Lexend', sans-serif !default;
+$font-samp:             $font-main !default;
 
-$color-primary:         white;
-$color-secondary:       floralwhite;
-$color-tertiary:        #2cdd88;
-$color-bg:              #3a3a3a;
-$color-fg:              ivory;
-$color-dark:            gray;
-$color-link:            deeppink;
-$color-theme:           #ffc100;
-$color-bullet:          gray;
+$color-primary:         white !default;
+$color-secondary:       floralwhite !default;
+$color-tertiary:        #2cdd88 !default;
+$color-bg:              #3a3a3a !default;
+$color-fg:              ivory !default;
+$color-dark:            gray !default;
+$color-link:            deeppink !default;
+$color-theme:           #ffc100 !default;
+$color-bullet:          gray !default;
 
-$color-row-odd:         #2a2a2a;
-$color-row-even:        #2f2f2f;
+$color-row-odd:         #2a2a2a !default;
+$color-row-even:        #2f2f2f !default;
 
-$color-code-bg:         #222;
-$color-card-bg:         whitesmoke;
-$color-card-fg:         #444;
+$color-code-bg:         #222 !default;
+$color-card-bg:         whitesmoke !default;
+$color-card-fg:         #444 !default;
 
-$card-font-size:        16px;
-$samp-font-size:        inherit;
+$card-font-size:        16px !default;
+$samp-font-size:        inherit !default;
 
-$content-width:         600px;
+$content-width:         600px !default;
 
-$grid-width:            180px;
-$grid-image-height:     180px;
-$grid-body-height:      initial;
+$grid-width:            180px !default;
+$grid-image-height:     180px !default;
+$grid-body-height:      default !default;

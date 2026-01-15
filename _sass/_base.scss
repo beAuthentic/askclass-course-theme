@@ -1,39 +1,40 @@
-@use "default";
+@use "init";
+@use "default" as *;
 
 :root {
-  --icon-logo:          #{default.$icon-logo};
-  --icon-name:          #{default.$icon-name};
+  --icon-logo:          #{$icon-logo};
+  --icon-name:          #{$icon-name};
 
-  --font-special:       #{default.$font-special};
-  --font-mono:          #{default.$font-mono};
-  --font-main:          #{default.$font-main};
-  --font-secondary:     #{default.$font-secondary};
-  --font-tertiary:      #{default.$font-tertiary};
-  --font-samp:          #{default.$font-samp};
+  --font-special:       #{$font-special};
+  --font-mono:          #{$font-mono};
+  --font-main:          #{$font-main};
+  --font-secondary:     #{$font-secondary};
+  --font-tertiary:      #{$font-tertiary};
+  --font-samp:          #{$font-samp};
 
-  --color-bg:           #{default.$color-bg};
-  --color-fg:           #{default.$color-fg};
-  --color-primary:      #{default.$color-primary};
-  --color-secondary:    #{default.$color-secondary};
-  --color-tertiary:     #{default.$color-tertiary};
-  --color-link:         #{default.$color-link};
-  --color-dark:         #{default.$color-dark};
-  --color-theme:        #{default.$color-theme};
-  --color-bullet:       #{default.$color-bullet};
-  --color-row-odd:      #{default.$color-row-odd};
-  --color-row-even:     #{default.$color-row-even};
+  --color-bg:           #{$color-bg};
+  --color-fg:           #{$color-fg};
+  --color-primary:      #{$color-primary};
+  --color-secondary:    #{$color-secondary};
+  --color-tertiary:     #{$color-tertiary};
+  --color-link:         #{$color-link};
+  --color-dark:         #{$color-dark};
+  --color-theme:        #{$color-theme};
+  --color-bullet:       #{$color-bullet};
+  --color-row-odd:      #{$color-row-odd};
+  --color-row-even:     #{$color-row-even};
 
-  --color-card-fg:      #{default.$color-card-fg};
-  --color-card-bg:      #{default.$color-card-bg};
-  --color-code-bg:      #{default.$color-code-bg};
+  --color-card-fg:      #{$color-card-fg};
+  --color-card-bg:      #{$color-card-bg};
+  --color-code-bg:      #{$color-code-bg};
 
-  --content-width:      #{default.$content-width};
+  --content-width:      #{$content-width};
 
-  --grid-width:         #{default.$grid-width};
-  --grid-image-height:  #{default.$grid-image-height};
-  --grid-body-height:   #{default.$grid-body-height};
-  --card-font-size:     #{default.$card-font-size};
-  --samp-font-size:     #{default.$samp-font-size};
+  --grid-width:         #{$grid-width};
+  --grid-image-height:  #{$grid-image-height};
+  --grid-body-height:   #{$grid-body-height};
+  --card-font-size:     #{$card-font-size};
+  --samp-font-size:     #{$samp-font-size};
 }
 
 body {

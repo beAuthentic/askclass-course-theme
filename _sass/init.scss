@@ -2,9 +2,8 @@
 // https://github.com/beAuthentic/askclass-course-theme/blob/main/_sass/default.scss
 
 // Example, to overwrite default bg/fg colors specified in the file above:
-// $color-bg:        black;
-// $color-fg:        white;
-
+// @forward 'default' with ( $color-bg: black );
+// @forward 'default' with ( $color-fg: white );
 
 // Make grid boxes the same height (scrollable)
-// $grid-body-height:      300px;
+// @forward 'default' with ( $grid-body-height: 200px );
