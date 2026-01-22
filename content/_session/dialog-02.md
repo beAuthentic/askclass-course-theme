@@ -1,7 +1,7 @@
 ---
 dialogue:
   - Hello again!
-  - We're good here?
-  - Yup.
+  - We're good ^here? \ Anything ^else?
+  - [ "Nope!", "We're good." ]
   - Carry on!
 ---

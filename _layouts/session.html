@@ -4,6 +4,9 @@
 {%- if session_data.width != 'max' -%}
   {%- assign constraint = 'max-width' -%}
 {%- endif -%}
+{%- if session_data.type == 'Dialog' -%}
+  {%- assign constraint = constraint | prepend: 'dialog ' -%}
+{%- endif -%}
 
 <!doctype html>
 <html lang="en">
@@ -20,7 +23,7 @@
         {%- include session/sounds.html audio=session_data.audio -%}
         {{ content }}
         {%- if page.dialogue -%}
-          {%- include session/conversation.html data=page.dialogue-%}
+          {%- include session/conversation.html data=page.dialogue -%}
         {%- endif -%}
       </article>
     </section>
@@ -30,5 +33,10 @@
     {%- include footer.html -%}
     {%- include foot/mathjax.html -%}
     <script async src="/assets/js/essential-audio-player.js"></script>
+    {%- if session_data.type == 'Dialog' -%}
+      <script async src="/assets/js/word-click-handler.js"></script>
+      {%- include word-click-handler.html -%}
+      {%- include foot/popup.html -%}
+    {%- endif -%}
   </body>
 </html>

@@ -6,6 +6,14 @@
   {%- else -%}
     {%- assign side = 'left' -%}
   {%- endif -%}
-  {% include session/bubble.html text=text side=side index=forloop.index %}
+  {%- if text.first -%}
+    {%- assign idx = forloop.index -%}
+    {%- for line in text -%}
+      {%- assign i = forloop.index | prepend: "." | prepend: idx -%}
+      {% include session/bubble.html text=line side=side index=i %}
+    {%- endfor -%}
+  {%- else -%}
+    {% include session/bubble.html text=text side=side index=forloop.index %}
+  {%- endif -%}
 {%- endfor -%}
 </section>

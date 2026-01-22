@@ -62,6 +62,8 @@ dialog-01:
   segment: 'week-03'
   title: 'Making Conversations'
   type: 'Dialog'
+  mode: learn-english
+  index: true
   icon: forum
   sequence: 1
   header: 'Dialogue 1'

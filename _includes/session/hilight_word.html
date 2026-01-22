@@ -1,0 +1,23 @@
+{% assign word = include.word | replace: '<u>' | replace: '</u>' %}
+{%- assign str = word | remove_first: '^' %}
+
+{%- if str == word %}
+  {{ word }}
+{%- else -%}
+  {%- assign w = str
+     | remove_first: '.'
+     | remove_first: ','
+     | remove_first: ';'
+     | remove_first: '!'
+     | remove_first: '?'
+   %}
+  {%- if w == str %}
+    {%- assign punct = '' -%}
+  {%- else %}
+    {%- assign punct = str | slice: -1, 1 -%}
+  {% endif -%}
+  <a href="#"
+    data-word-click="wordClick"
+    data-arg-word="{{ w }}"
+  >{{ w }}</a>{{ punct }}
+{% endif -%}

@@ -2,9 +2,9 @@
 dialogue:
   - Hey there!
   - What's up?
-  - Sampling the dialogue feature.
+  - Use sessions.index = true \ to turn on numbering.
   - How's that going?
-  - No clue.
+  - [ 'No clue.', 'Use an array to add multiple bubbles per person' ]
   - Good
 ---
 
