@@ -39,25 +39,29 @@ function showPopup(title, html) {
   if (body) body.innerHTML = html;
 
   popup.classList.add('show');
+  document.body.classList.add('no-scroll');
+}
+
+function close(popup) {
+  popup.classList.remove('show');
+  document.body.classList.remove('no-scroll');
 }
 
 function initPopupClose() {
   const popup = document.getElementById('course-popup');
   if (!popup) return;
 
-  popup.querySelector('.tab')?.addEventListener('click', () => {
-    popup.classList.remove('show');
-  });
+  popup.querySelector('.tab')?.addEventListener('click', () => close(popup));
 
   popup.addEventListener('click', (e) => {
     if (e.target === popup) {
-      popup.classList.remove('show');
+      close(popup);
     }
   });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && popup.classList.contains('show')) {
-      popup.classList.remove('show');
+      close(popup);
     }
   });
 }

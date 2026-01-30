@@ -20,6 +20,10 @@
     width: 480px;
     max-height: 85vh;
     position: relative;
-    height: inherit;
+    height: initial;
+  }
+
+  .body {
+    overflow-y: auto;
   }
 }

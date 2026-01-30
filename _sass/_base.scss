@@ -53,6 +53,10 @@ body {
   &::-webkit-scrollbar-corner {
     background-color: transparent;
   }
+  &.no-scroll {
+    overflow: hidden;
+    padding-right: 6px;
+  }
 }
 
 hr {
