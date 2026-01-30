@@ -32,3 +32,36 @@ ul > li > ul > li {
     list-style-type: initial;
   }
 }
+
+details {
+  summary {
+    cursor: pointer;
+    list-style: none;
+    &::-webkit-details-marker,
+    &::marker {
+      display: none;
+    }
+    &::before {
+      content: "\25B6\FE0E";
+      margin-right: 5px;
+      font-size: 0.9em;
+      color: var(--color-bullet);
+    }
+  }
+  &[open] {
+    summary {
+      &::before {
+        content: "\25BC\FE0E";
+      }
+    }
+  }
+}
+
+details > *:not(summary) {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; margin-top: -10px; }
+  to   { opacity: 1; margin-top: 0;    }
+}
