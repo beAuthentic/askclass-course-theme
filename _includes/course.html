@@ -48,7 +48,7 @@
               {{ session.title }}
 
               {%- if session.part -%}
-                <small>(Part {{ session.part }})</small>
+                <small>({{ session.part }})</small>
               {%- endif -%}
             </div>
           {%- endfor -%}
@@ -56,8 +56,10 @@
         <div class="control">
           <a class="button" href="/segment/{{ segment }}">
             {{ info.title }}&nbsp;
+            {%- if info['rocket-icon'] != 'none' %}
             <span data-date="{{ info.end }}"
               class="middle-align rocket {{ symbols }}">rocket_launch</span>
+            {%- endif %}
           </a>
         </div>
       </li>

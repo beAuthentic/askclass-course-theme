@@ -27,7 +27,7 @@ assignment-01:
   url: 'assignment-01'
   due: 2022-10-07
   points: 20
-  part: 1
+  part: Part 1
 
 session-03:
   segment: 'week-02'
@@ -46,7 +46,7 @@ assignment-02:
   url: 'assignment-02'
   due: 2022-10-16
   points: 20
-  part: 2
+  part: Part 2
 
 quiz-01:
   segment: 'week-02'
@@ -61,7 +61,7 @@ quiz-01:
 dialog-01:
   segment: 'week-03'
   title: 'Making Conversations'
-  type: 'Dialog'
+  dialog: true
   mode: learn-english
   index: true
   icon: forum
@@ -72,7 +72,7 @@ dialog-01:
 dialog-02:
   segment: 'week-03'
   title: 'Continuing the Dialog'
-  type: 'Dialog'
+  dialog: true
   icon: forum
   width: max
   sequence: 2

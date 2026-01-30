@@ -4,7 +4,7 @@
 {%- if session_data.width != 'max' -%}
   {%- assign constraint = 'max-width' -%}
 {%- endif -%}
-{%- if session_data.type == 'Dialog' -%}
+{%- if session_data.dialog -%}
   {%- assign constraint = constraint | prepend: 'dialog ' -%}
 {%- endif -%}
 
@@ -33,7 +33,7 @@
     {%- include footer.html -%}
     {%- include foot/mathjax.html -%}
     <script async src="/assets/js/essential-audio-player.js"></script>
-    {%- if session_data.type == 'Dialog' -%}
+    {%- if session_data.dialog -%}
       <script async src="/assets/js/word-click-handler.js"></script>
       {%- include word-click-handler.html -%}
       {%- include foot/popup.html -%}

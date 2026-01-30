@@ -45,6 +45,7 @@
     font-family: var(--icon-name);
     line-height: 0.7;
     font-size: 37px;
+    cursor: pointer;
   }
 }
 
@@ -69,6 +70,9 @@
   padding: 10px;
   overflow: hidden;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   &.limit-height {
     max-height: var(--grid-body-height);
     overflow-y: auto;

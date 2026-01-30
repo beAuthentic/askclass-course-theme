@@ -17,6 +17,7 @@ week-02:
   begin: 2022-10-10
   end: 2022-10-17
   theme: c3
+  rocket-icon: none
   items:
     - session-03
     - assignment-02
