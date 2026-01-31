@@ -70,9 +70,11 @@
   padding: 10px;
   overflow: hidden;
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  &:not(.limit-height) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   &.limit-height {
     max-height: var(--grid-body-height);
     overflow-y: auto;

@@ -164,6 +164,7 @@ sub {
   @include align-middle();
   font-family: var(--font-special);
   flex-direction: column;
+  z-index: 100;
   a {
     color: var(--color-theme);
     display: flex;
