@@ -93,7 +93,7 @@ jobs:
           git commit -m "chore: bump version to ${{ env.VERSION }}" || echo "No changes to commit"
 
       - name: Push to release branch
-        run: git push origin HEAD:${{ env.RELEASE_BRANCH }} --force
+        run: git push origin HEAD:refs/heads/${{ env.RELEASE_BRANCH }} --force
 
       - name: Create or update PR with auto-merge label
         env:
