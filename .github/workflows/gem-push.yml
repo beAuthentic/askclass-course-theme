@@ -1,4 +1,4 @@
-name: Jekyll Build
+name: Gem Release
 
 on:
   release:
@@ -53,7 +53,7 @@ jobs:
           echo "RELEASE_BRANCH=$RELEASE_BRANCH" >> $GITHUB_ENV
 
           echo "Old version: $OLD_VERSION"
-          echo "New version: $VERSION"
+          echo "New version: $NEW_VERSION"
           echo "Package:     $PACKAGE_NAME"
           echo "Branch:      $RELEASE_BRANCH"
           echo "Test mode:   $IS_TEST_MODE"
