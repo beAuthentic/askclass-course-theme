@@ -5,63 +5,126 @@ on:
     types: [published]
 
   workflow_dispatch:
+    inputs:
+      test_version:
+        description: 'Test version (e.g. 0.0.99-test) - skips gem pushes if provided'
+        required: false
+        type: string
+        default: ''
 
 jobs:
   build:
     name: Build + Publish
     runs-on: ubuntu-latest
+    permissions:
+      contents: write        # for commit, push, branch ops
+      pull-requests: write   # for creating/editing PR + adding labels
+
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
       - uses: ruby/setup-ruby@v1
         with:
-         bundler-cache: true
+          bundler-cache: true
 
-      - name: Get Current Version
-        id: version
+      - name: Extract Versions and Package Name
         run: |
-          echo "OLD=$(grep spec.version *.gemspec | cut -d\" -f2)" >> $GITHUB_OUTPUT
-          echo "NEW=$(echo ${GITHUB_REF_NAME:1})" >> $GITHUB_OUTPUT
+          OLD_VERSION=$(grep 'spec.version' *.gemspec | cut -d'"' -f2 | tr -d ' ')
+          PACKAGE_NAME=$(grep 'spec.name' *.gemspec | cut -d'"' -f2 | tr -d ' ')
 
-      - name: Get Package Name
-        id: name
-        run: echo "NAME=$(grep spec.name *.gemspec | cut -d\" -f2)" >> $GITHUB_OUTPUT
+          if [ -n "${{ inputs.test_version }}" ]; then
+            NEW_VERSION="${{ inputs.test_version }}"
+            IS_TEST_MODE="true"
+            echo "TEST MODE: Using provided test version ${{ inputs.test_version }} (gem pushes will be skipped)"
+          else
+            NEW_VERSION=${GITHUB_REF_NAME#v}
+            IS_TEST_MODE="false"
+            echo "REAL MODE: Using tag-derived version $NEW_VERSION"
+          fi
 
-      - name: Update Version
+          echo "OLD_VERSION=$OLD_VERSION"     >> $GITHUB_ENV
+          echo "VERSION=$NEW_VERSION"         >> $GITHUB_ENV
+          echo "PACKAGE_NAME=$PACKAGE_NAME"   >> $GITHUB_ENV
+          echo "IS_TEST_MODE=$IS_TEST_MODE"   >> $GITHUB_ENV
+
+          RELEASE_BRANCH="release/v${NEW_VERSION}"
+          echo "RELEASE_BRANCH=$RELEASE_BRANCH" >> $GITHUB_ENV
+
+          echo "Old version: $OLD_VERSION"
+          echo "New version: $VERSION"
+          echo "Package:     $PACKAGE_NAME"
+          echo "Branch:      $RELEASE_BRANCH"
+          echo "Test mode:   $IS_TEST_MODE"
+
+      - name: Update Version in gemspec
         run: |
-          sed -i -e '/spec.version/c\  spec.version       = "${{ steps.version.outputs.NEW }}"' \
-          ${{ steps.name.outputs.NAME }}.gemspec
+          sed -i -e "s/spec.version\s*=.*/spec.version       = \"${{ env.VERSION }}\"/" \
+            ${{ env.PACKAGE_NAME }}.gemspec
 
-      - name: Remove non-theme related assets
-        run: rm -rf assets/audio
+      - name: Build Gem
+        run: gem build ${{ env.PACKAGE_NAME }}.gemspec
 
-      - name: Build
-        run: gem build ${{ steps.name.outputs.NAME }}.gemspec
-
-      - name: Credentials & Push
+      - name: Credentials & Push to RubyGems
+        if: env.IS_TEST_MODE != 'true'
         run: |
           mkdir -p $HOME/.gem
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials
           printf -- "---\n:rubygems: ${{ secrets.RUBYGEMS_TOKEN }}\n" > $HOME/.gem/credentials
           printf -- ":github: Bearer ${{ secrets.GITHUB_TOKEN }}\n" >> $HOME/.gem/credentials
+
+          # Push to GitHub Packages
           gem push \
             --key=github \
             --host=https://rubygems.pkg.github.com/${{ github.repository_owner }} \
-              ${{ steps.name.outputs.NAME }}-*.gem
-          gem push --key=rubygems ${{ steps.name.outputs.NAME }}-*.gem
+            ${{ env.PACKAGE_NAME }}-*.gem
 
-      - name: Version PR
-        uses: peter-evans/create-pull-request@v8
-        with:
-          commit-message: Update to ${{ steps.version.outputs.NEW }}
-          title: Update ${{ steps.name.outputs.NAME }} (${{ steps.version.outputs.NEW }})
-          body: ${{ steps.old_version.outputs.OLD }}
-          branch: update-version
-          base: main
+          # Push to rubygems.org
+          gem push --key=rubygems ${{ env.PACKAGE_NAME }}-*.gem
 
-      - name: Trim old packages
+      - name: Commit version bump
+        run: |
+          git config user.name  "GitHub Actions"
+          git config user.email "actions@github.com"
+
+          git add ${{ env.PACKAGE_NAME }}.gemspec
+          git commit -m "chore: bump version to ${{ env.VERSION }}" || echo "No changes to commit"
+
+      - name: Push to release branch
+        run: git push origin HEAD:${{ env.RELEASE_BRANCH }} --force
+
+      - name: Create or update PR with auto-merge label
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_TITLE="chore: update ${{ env.PACKAGE_NAME }} to ${{ env.VERSION }}"
+          PR_BODY="Automated version bump to ${{ env.VERSION }} after release publication.\n\nOld version was ${{ env.OLD_VERSION }}."
+
+          # Check for existing open PR on this branch
+          EXISTING_PR=$(gh pr list --head "${{ env.RELEASE_BRANCH }}" --state open --json number --jq '.[0].number // ""')
+
+          if [ -n "$EXISTING_PR" ]; then
+            echo "Updating existing PR #$EXISTING_PR"
+            gh pr edit "$EXISTING_PR" \
+              --title "$PR_TITLE" \
+              --body "$PR_BODY"
+            gh pr reopen "$EXISTING_PR" || true
+          else
+            echo "Creating new PR"
+            gh pr create \
+              --base main \
+              --head "${{ env.RELEASE_BRANCH }}" \
+              --title "$PR_TITLE" \
+              --body "$PR_BODY" \
+              --label "auto-merge"
+          fi
+
+      - name: Trim old package versions
+        if: env.IS_TEST_MODE != 'true'
         uses: actions/delete-package-versions@v5
         with:
-          package-name: ${{ steps.name.outputs.NAME }}
+          package-name: ${{ env.PACKAGE_NAME }}
           package-type: rubygems
           min-versions-to-keep: 5
