@@ -1,0 +1,64 @@
+@use "base" as *;
+
+.logo-static {
+  @include align-middle();
+  font-family: var(--font-special);
+  flex-direction: column;
+  z-index: 2;
+  a {
+    color: var(--color-theme);
+    display: inline-block;
+    &.logo-name {
+      margin: 3px 0;
+    }
+  }
+  img {
+    width: var(--icon-logo-size);
+    height: var(--icon-logo-size);
+  }
+  .progress-wrapper {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+    width:  var(--icon-logo-size);
+    height: var(--icon-logo-size);
+    .progress-ring {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+      pointer-events: none;          // clicks pass through to <a><img>
+
+      .progress-ring__bar {
+        fill: none;
+        stroke-linecap: round;
+        stroke-width: 5;               // thinner = cleaner look
+        stroke: var(--color-theme);
+        stroke-dasharray: 301.6;       // ≈ 2 * π * 48
+        stroke-dashoffset: 301.6;
+        transition: stroke-dashoffset 0.18s ease;
+        stroke-dashoffset: 301.6;     // r=48 → circumference ≈301.59
+      }
+    }
+  }
+  &.fixed {
+    flex-direction: row-reverse;
+    position: fixed;
+    right: 5px;
+    top: 5px;
+    opacity: 0.8;
+    img {
+      transform: scale(0.6);
+    }
+    .progress-ring {
+      transform: rotate(-90deg) scale(0.7);
+    }
+    &.bottom {
+      opacity: 1;
+      bottom: 70px;
+      top: unset;
+    }
+  }
+}
+
