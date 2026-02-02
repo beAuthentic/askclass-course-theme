@@ -73,7 +73,7 @@ jobs:
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials
           printf -- "---\n:rubygems: ${{ secrets.RUBYGEMS_TOKEN }}\n" > $HOME/.gem/credentials
-          printf -- ":github: Bearer ${{ secrets.GITHUB_TOKEN }}\n" >> $HOME/.gem/credentials
+          printf -- ":github: Bearer ${{ secrets.GEM_PUSH_TOKEN }}\n" >> $HOME/.gem/credentials
 
           # Push to GitHub Packages
           gem push \
