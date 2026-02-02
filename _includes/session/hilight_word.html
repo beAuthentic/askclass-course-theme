@@ -2,7 +2,7 @@
 {%- assign str = word | remove_first: '^' %}
 
 {%- if str == word %}
-  {{ word }}
+  {{ include.word }}
 {%- else -%}
   {%- assign w = str
      | remove_first: '.'

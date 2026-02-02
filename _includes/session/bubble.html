@@ -4,7 +4,6 @@
       {%- if session_data.index %}
         <div class="index">{{ include.index }}</div>
       {%- endif %}
-
       {% assign words = include.text | replace: '\', '<br/>' | split: " " %}
       {%- for raw in words %}
         {%- if session_data.mode == 'learn-english' %}
