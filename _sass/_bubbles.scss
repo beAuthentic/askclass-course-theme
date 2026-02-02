@@ -159,12 +159,11 @@ $color-fade:  rgba(0,0,0,0.6); // border shadow
     font-size: 20px;
     line-height: 29px;
     white-space: nowrap;
-    background-color: transparent;
   }
 
   .left & .index {
     color: $color1;
-    left: -37px;
+    left: -31px;
     justify-content: flex-end;
   }
 
