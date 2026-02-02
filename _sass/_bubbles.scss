@@ -1,286 +1,156 @@
-html {
-  --color1: lightyellow;
-  --color2: lightgreen;
-  --color1h: #ebebbb;
-  --color2h: #6bd76b;
-  --colorFade: rgba(0,0,0,0.6);
-  --color1f: #666658;
-  --color2f: #395f39;
+// _sass/_bubbles.scss
+// Speech / chat bubbles with directional triangles
+// Full expansion & refactoring for better SCSS usage
+
+// ── 1. Theme colors (override in _base.scss or site variables if needed) ──
+$color1:      lightyellow;     // left bubble bg
+$color1h:     #ebebbb;         // left hover/active
+$color1f:     #666658;         // left underline/accent
+
+$color2:      lightgreen;      // right bubble bg
+$color2h:     #6bd76b;         // right hover/active
+$color2f:     #395f39;         // right underline/accent
+
+$color-fade:  rgba(0,0,0,0.6); // border shadow
+
+// Keep CSS vars for potential JS interop or legacy
+:root {
+  --color1:   #{$color1};
+  --color1h:  #{$color1h};
+  --color1f:  #{$color1f};
+  --color2:   #{$color2};
+  --color2h:  #{$color2h};
+  --color2f:  #{$color2f};
+  --colorFade: #{$color-fade};
 }
 
+// ── 2. Reusable triangle mixin ───────────────────────────────────────────────
+@mixin triangle(
+  $dir: left-in,
+  $outer-size: 32px,
+  $inner-size: 22px,
+  $outer-color: $color1f,
+  $inner-color: $color1
+) {
+  &:before,
+  &:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+
+  &:before {
+    border: $outer-size solid;
+    border-color: $outer-color;
+  }
+
+  &:after {
+    border: $inner-size solid;
+    border-color: $inner-color;
+  }
+
+  @if $dir == 'left-in' {
+    &:before {
+      left: -40px; top: 12px;
+      border-color: $outer-color $outer-color transparent transparent;
+    }
+    &:after {
+      left: -20px; top: 20px;
+      border-color: $inner-color $inner-color transparent transparent;
+    }
+  }
+
+  @else if $dir == 'right-in' {
+    &:before {
+      right: -40px; top: 12px;
+      border-color: $outer-color transparent transparent $outer-color;
+    }
+    &:after {
+      right: -20px; top: 20px;
+      border-color: $inner-color transparent transparent $inner-color;
+    }
+  }
+}
+
+// ── 3. Container ──────────────────────────────────────────────────────────────
 .bubble-container {
-  display:flex;
-}
-.bubble-container.left {
-  justify-content: flex-start;
-}
-.bubble-container.right {
-  justify-content: flex-end;
+  display: flex;
+
+  &.left  { justify-content: flex-start; }
+  &.right { justify-content: flex-end;   }
 }
 
-/* CSS talk bubble */
+// ── 4. Bubble base ────────────────────────────────────────────────────────────
 .talk-bubble {
-  margin: 10px 35px;
-  display: inline-block;
-  position: relative;
-  height: auto;
-  color: #222;
+  margin:     10px 35px;
+  display:    inline-block;
+  position:   relative;
+  height:     auto;
+  color:      #222;
+
+  &.left {
+    margin-right: 60px;
+    background-color: $color1;
+
+    a {
+      color: inherit;
+      background-color: $color1h;
+    }
+  }
+
+  &.right {
+    margin-left: 60px;
+    background-color: $color2;
+
+    a {
+      color: inherit;
+      background-color: $color2h;
+    }
+  }
 }
-.talk-bubble.left {
-  margin-right: 60px;
-  background-color: var(--color1);
+
+// ── 5. Modifiers ──────────────────────────────────────────────────────────────
+.border {
+  border: 8px solid $color-fade;
 }
-.talk-bubble.left a {
-  color: inherit;
-  background-color: var(--color1h);
-}
-.talk-bubble.right {
-  margin-left: 60px;
-  background-color: var(--color2);
-}
-.talk-bubble.right a {
-  color: inherit;
-  background-color: var(--color2h);
-}
-.border{
-  border: 8px solid var(--colorFade);
-}
-.round{
+
+.round {
   border-radius: 30px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
 }
 
-/* Right triangle placed top left flush. */
-.tri-right.border.left-top:before {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -40px;
-  right: auto;
-  top: -8px;
-  bottom: auto;
-  border: 32px solid;
-  border-color: var(--colorFade) transparent transparent transparent;
-}
-.tri-right.left-top:after{
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -20px;
-  right: auto;
-  top: 0px;
-  bottom: auto;
-  border: 22px solid;
-  border-color: var(--color1) transparent transparent transparent;
+// ── 6. Triangles (using mixin) ────────────────────────────────────────────────
+.tri-right {
+  // left-in (slightly down)
+  &.left-in {
+    @include triangle(left-in, 20px, 12px, $color1f, $color1);
+
+    &.border {
+      @include triangle(left-in, 20px, 12px, $color1f, $color1);
+    }
+  }
+
+  // right-in (slightly down)
+  &.right-in {
+    @include triangle(right-in, 20px, 12px, $color2f, $color2);
+
+    &.border {
+      @include triangle(right-in, 20px, 12px, $color2f, $color2);
+    }
+  }
 }
 
-/* Right triangle, left side slightly down */
-.tri-right.border.left-in:before {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -40px;
-  right: auto;
-  top: 12px;
-  bottom: auto;
-  border: 20px solid;
-  border-color: var(--colorFade) var(--colorFade) transparent transparent;
-}
-.tri-right.left-in:after{
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -20px;
-  right: auto;
-  top: 20px;
-  bottom: auto;
-  border: 12px solid;
-}
-.left.tri-right.left-in:after {
-  border-color: var(--color1) var(--color1) transparent transparent;
-}
-.left.tri-right.border.left-in:before {
-  border-color: var(--color1f) var(--color1f) transparent transparent;
-}
-.right.tri-right.left-in:after {
-  border-color: var(--color2) var(--color2) transparent transparent;
-}
-.right.tri-right.border.left-in:before {
-  border-color: var(--color2f) var(--color2f) transparent transparent;
-}
-
-/*Right triangle, placed bottom left side slightly in*/
-.tri-right.border.btm-left:before {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: -8px;
-  right: auto;
-  top: auto;
-  bottom: -40px;
-  border: 32px solid;
-  border-color: transparent transparent transparent var(--colorFade);
-}
-.tri-right.btm-left:after{
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 0px;
-  right: auto;
-  top: auto;
-  bottom: -20px;
-  border: 22px solid;
-  border-color: transparent transparent transparent var(--color1);
-}
-
-/*Right triangle, placed bottom left side slightly in*/
-.tri-right.border.btm-left-in:before {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 30px;
-  right: auto;
-  top: auto;
-  bottom: -40px;
-  border: 20px solid;
-  border-color: var(--colorFade) transparent transparent var(--colorFade);
-}
-.tri-right.btm-left-in:after{
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: 38px;
-  right: auto;
-  top: auto;
-  bottom: -20px;
-  border: 12px solid;
-  border-color: var(--color1) transparent transparent var(--color1);
-}
-
-/*Right triangle, placed bottom right side slightly in*/
-.tri-right.border.btm-right-in:before {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: 30px;
-  bottom: -40px;
-  border: 20px solid;
-  border-color: var(--colorFade) var(--colorFade) transparent transparent;
-}
-.tri-right.btm-right-in:after{
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: 38px;
-  bottom: -20px;
-  border: 12px solid;
-  border-color: var(--color1) var(--color1) transparent transparent;
-}
-.tri-right.border.btm-right:before {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -8px;
-  bottom: -40px;
-  border: 20px solid;
-  border-color: var(--colorFade) var(--colorFade) transparent transparent;
-}
-.tri-right.btm-right:after{
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: 0px;
-  bottom: -20px;
-  border: 12px solid;
-  border-color: var(--color1) var(--color1) transparent transparent;
-}
-
-/* Right triangle, right side slightly down*/
-.tri-right.border.right-in:before {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -40px;
-  top: 12px;
-  bottom: auto;
-  border: 20px solid;
-}
-.tri-right.right-in:after{
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -20px;
-  top: 20px;
-  bottom: auto;
-  border: 12px solid;
-  border-color: var(--color1) transparent transparent var(--color1);
-}
-.left.tri-right.right-in:after {
-  border-color: var(--color1) transparent transparent var(--color1);
-}
-.left.tri-right.border.right-in:before {
-  border-color: var(--color1f) transparent transparent var(--color1f);
-}
-.right.tri-right.right-in:after {
-  border-color: var(--color2) transparent transparent var(--color2);
-}
-.right.tri-right.border.right-in:before {
-  border-color: var(--color2f) transparent transparent var(--color2f);
-}
-
-/* Right triangle placed top right flush. */
-.tri-right.border.right-top:before {
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -40px;
-  top: -8px;
-  bottom: auto;
-  border: 32px solid;
-  border-color: var(--colorFade) transparent transparent transparent;
-}
-.tri-right.right-top:after{
-  content: ' ';
-  position: absolute;
-  width: 0;
-  height: 0;
-  left: auto;
-  right: -20px;
-  top: 0px;
-  bottom: auto;
-  border: 20px solid;
-  border-color: var(--color1) transparent transparent transparent;
-}
-
-.talktext{
+// ── 7. Text content ───────────────────────────────────────────────────────────
+.talktext {
   padding: 1em;
   text-align: left;
-  font-size: calc(20px + (30 - 10) * ((100vw - 500px) / (1600 - 300)));
-  line-height: calc(30px + (12 - 0) * ((100vw - 500px) / (600 - 10)));
   font-family: var(--font-tertiary);
+
+  // Responsive font sizing with clamp (modern replacement for calc)
+  font-size:   clamp(20px, 1.25rem + 0.5vw, 30px);
+  line-height: clamp(30px, 1.8rem + 0.8vw, 42px);
+
   .index {
     position: absolute;
     top: -14px;
@@ -289,24 +159,26 @@ html {
     font-size: 20px;
     line-height: 29px;
     white-space: nowrap;
+    background-color: transparent;
+  }
+
+  .left & .index {
+    color: $color1;
+    left: -37px;
+    justify-content: flex-end;
+  }
+
+  .right & .index {
+    color: $color2;
+    right: -37px;
+    justify-content: flex-start;  // fixed typo from original
   }
 }
-.left .talktext .index {
-  color: var(--color1);
-  left: -37px;
-  justify-content: flex-end;
-}
-.right .talktext .index {
-  color: var(--color2);
-  right: -37px;
-  justify-content: flex-begin;
-}
+
+// ── 8. Underlines ─────────────────────────────────────────────────────────────
 u {
   text-decoration-thickness: from-font;
 }
-.left u {
-  text-decoration-color: var(--color1f);
-}
-.right u {
-  text-decoration-color: var(--color2f);
-}
+
+.left u  { text-decoration-color: $color1f; }
+.right u { text-decoration-color: $color2f; }
