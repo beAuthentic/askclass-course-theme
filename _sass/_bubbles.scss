@@ -147,10 +147,6 @@ $color-fade:  rgba(0,0,0,0.6); // border shadow
   text-align: left;
   font-family: var(--font-tertiary);
 
-  // Responsive font sizing with clamp (modern replacement for calc)
-  font-size:   clamp(20px, 1.25rem + 0.5vw, 30px);
-  line-height: clamp(30px, 1.8rem + 0.8vw, 42px);
-
   .index {
     position: absolute;
     top: -14px;

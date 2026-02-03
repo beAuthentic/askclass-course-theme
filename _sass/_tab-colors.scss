@@ -54,7 +54,7 @@ html {
     }
   }
   .body {
-    h3, h3 a, .item small:not(.due) {
+    .card-color {
       color: $color;
     }
     code, .due {
