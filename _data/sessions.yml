@@ -2,7 +2,6 @@ session-01:
   segment: 'week-01'
   title: 'Syllabus & Course Overview'
   icon: web_stories
-  header: 'Session 1'
   sequence: 1
   url: 'session-01'
   videos: [ 'NoWbwykidu0' ]
@@ -11,7 +10,6 @@ session-02:
   segment: 'week-01'
   title: "AskClass Course Theme Intro"
   icon: web_stories
-  header: 'Session 2'
   sequence: 2
   url: 'session-02'
   images:
@@ -33,7 +31,6 @@ session-03:
   segment: 'week-02'
   title: "Formatting Content"
   icon: web_stories
-  header: 'Session 3'
   sequence: 3
   url: 'session-03'
 

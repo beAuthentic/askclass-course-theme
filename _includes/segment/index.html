@@ -29,13 +29,13 @@
 
       <div class="body">
         {%- if session.url -%}
-          <h3><a href="/session/{{ session.url }}">{{ session.title }}</a></h3>
+          <h3><a class="card-color" href="/session/{{ session.url }}">{{ session.title }}</a></h3>
         {%- else -%}
-          <h3>{{ session.title }}</h3>
+          <h3 class="card-color">{{ session.title }}</h3>
         {%- endif -%}
 
         {%- if session.part -%}
-          <div class="item">
+          <div class="card-color item">
           {{ session.part }}
           </div>
         {%- endif -%}

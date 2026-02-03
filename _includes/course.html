@@ -25,17 +25,26 @@
           {%- endif -%}
           {%- for item in info.items -%}
             {%- assign session = site.data.sessions[item] -%}
+            {%- if session.header %}
+              {%- assign header = session.header %}
+            {%- elsif session.sequence %}
+              {%- assign header = course.session_tag | append: " " | append: session.sequence %}
+            {%- else %}
+              {%- assign header = nul %}
+            {%- endif %}
             <div class="item">
+              {%- if header %}
               <div class="middle-align">
-                <span class="{{ symbols }}">{{ session.icon }}</span>
+                <span class="card-color {{ symbols }}">{{ session.icon }}</span>
                 {%- if session.url -%}
                   <a href="/session/{{ session.url }}" title="{{ session.title }}">
-                    <h3>{{ session.header }}</h3>
+                    <h3 class="card-color">{{ header }}</h3>
                   </a>
                 {%- else -%}
-                  <h3>{{ session.header }}</h3>
+                  <h3 class="card-color">{{ header }}</h3>
                 {%- endif -%}
               </div>
+              {%- endif %}
               {%- if session.due -%}
                 <small class="due"
                   data-date="{{ session.due }}"
@@ -45,10 +54,16 @@
                 </small>
               {%- endif -%}
 
-              {{ session.title }}
+              {%- if header == nul && session.url %}
+                <a class="card-color" href="/session/{{ session.url }}" title="{{ session.title }}">
+                  {{ session.title }}
+                </a>
+              {%- else %}
+                {{ session.title }}
+              {%- endif %}
 
               {%- if session.part -%}
-                <small>({{ session.part }})</small>
+                <small class="card-color">({{ session.part }})</small>
               {%- endif -%}
             </div>
           {%- endfor -%}
