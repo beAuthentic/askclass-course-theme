@@ -141,4 +141,4 @@ jobs:
           package-name: ${{ env.PACKAGE_NAME }}
           package-type: rubygems
           min-versions-to-keep: 5
-          token: ${{ secrests.GEM_PUSH_TOKEN }}
+          token: ${{ secrets.GEM_PUSH_TOKEN }}
