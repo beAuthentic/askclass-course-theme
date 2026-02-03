@@ -19,6 +19,7 @@ jobs:
     permissions:
       contents: write        # for commit, push, branch ops
       pull-requests: write   # for creating/editing PR + adding labels
+      packages: write
 
     steps:
       - uses: actions/checkout@v6
@@ -95,12 +96,15 @@ jobs:
       - name: Push to release branch
         run: git push origin HEAD:refs/heads/${{ env.RELEASE_BRANCH }} --force
 
-      - name: Create or update PR with auto-merge label
+      - name: Create PR and merge immediately
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PR_TITLE="chore: update ${{ env.PACKAGE_NAME }} to ${{ env.VERSION }}"
-          PR_BODY="Automated version bump to ${{ env.VERSION }} after release publication.\n\nOld version was ${{ env.OLD_VERSION }}."
+          PR_BODY="Automated version bump to ${{ env.VERSION }} after release publication.\n\nOld version was ${{ env.OLD_VERSION }}.\n\nMerging immediately via workflow."
+
+          # Ensure label exists (optional, for visibility only now)
+          gh label create "gem-release" --color "0E8A16" --description "Gem version bump PR" --force || true
 
           # Check for existing open PR on this branch
           EXISTING_PR=$(gh pr list --head "${{ env.RELEASE_BRANCH }}" --state open --json number --jq '.[0].number // ""')
@@ -111,15 +115,24 @@ jobs:
               --title "$PR_TITLE" \
               --body "$PR_BODY"
             gh pr reopen "$EXISTING_PR" || true
+            PR_NUMBER="$EXISTING_PR"
           else
             echo "Creating new PR"
-            gh pr create \
+            PR_URL=$(gh pr create \
               --base main \
               --head "${{ env.RELEASE_BRANCH }}" \
               --title "$PR_TITLE" \
               --body "$PR_BODY" \
-              --label "auto-merge"
+              --label "gem-release")
+            PR_NUMBER=$(echo "$PR_URL" | grep -o '[0-9]\+')
           fi
+
+          # Immediately merge (squash is clean for version bumps; change to --merge or --rebase if preferred)
+          echo "Merging PR #$PR_NUMBER immediately"
+          gh pr merge "$PR_NUMBER" --squash --delete-branch || {
+            echo "Immediate merge failed (likely due to checks/protection). Falling back to enable auto-merge."
+            gh pr merge "$PR_NUMBER" --auto --squash --delete-branch || echo "Auto-merge enable also failed."
+          }
 
       - name: Trim old package versions
         if: env.IS_TEST_MODE != 'true'
@@ -128,3 +141,4 @@ jobs:
           package-name: ${{ env.PACKAGE_NAME }}
           package-type: rubygems
           min-versions-to-keep: 5
+          token: ${{ secrests.GEM_PUSH_TOKEN }}
