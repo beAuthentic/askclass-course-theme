@@ -9,7 +9,7 @@
         title="{{ site.title }}" />
     </a>
   </div>
-  <a class="logo-name" href="/segment/{{ session_data.segment }}">{{ site.acc.short_name }}</a>
+  <a class="logo-name" href="/{{ include.segpath }}/{{ session_data.segment }}">{{ site.acc.short_name }}</a>
 </div>
 
 <script defer>

@@ -1,4 +1,6 @@
 {%- assign course = site.data.course -%}
+{%- assign sespath = course.session_path | default: "session" -%}
+{%- assign segpath = course.segment_path | default: "segment" -%}
 
 <ul class="grid">
   {%- for segment in course.segments -%}
@@ -12,7 +14,7 @@
         <div class="tab">{{ info.segment[1] }}</div>
         {%- endif -%}
         <div class="header">
-          <a href="/segment/{{ segment }}">
+          <a href="/{{ segpath }}/{{ segment }}">
             {%- include date_range.html info=info -%}
           </a>
         </div>
@@ -37,7 +39,7 @@
               <div class="middle-align">
                 <span class="card-color {{ symbols }}">{{ session.icon }}</span>
                 {%- if session.url -%}
-                  <a href="/session/{{ session.url }}" title="{{ session.title }}">
+                  <a href="/{{ sespath }}/{{ session.url }}" title="{{ session.title }}">
                     <h3 class="card-color">{{ header }}</h3>
                   </a>
                 {%- else -%}
@@ -55,7 +57,7 @@
               {%- endif -%}
 
               {%- if header == nul && session.url %}
-                <a class="card-color" href="/session/{{ session.url }}" title="{{ session.title }}">
+                <a class="card-color" href="/{{ sespath }}/{{ session.url }}" title="{{ session.title }}">
                   {{ session.title }}
                 </a>
               {%- else %}
@@ -69,7 +71,7 @@
           {%- endfor -%}
         </div>
         <div class="control">
-          <a class="button" href="/segment/{{ segment }}">
+          <a class="button" href="/{{ segpath }}/{{ segment }}">
             {{ info.title }}&nbsp;
             {%- if info['rocket-icon'] != 'none' %}
             <span data-date="{{ info.end }}"

@@ -1,6 +1,7 @@
 {%- assign session_id = page.id | split: '/' | last -%}
 {%- assign session_data = site.data.sessions[session_id] -%}
 {%- assign segment_data = site.data.syllabus[session_data.segment] -%}
+{%- assign segpath = site.data.course.segment_path -%}
 {%- if session_data.width != 'max' -%}
   {%- assign constraint = 'max-width' -%}
 {%- endif -%}
@@ -12,7 +13,7 @@
 <html lang="en">
   {% include header.html %}
   <body>
-    {%- include logo_static.html %}
+    {%- include logo_static.html segpath=segpath %}
     {%- include session/header.html %}
 
     <section class="center-align spacer content">

@@ -6,7 +6,7 @@
   <h1 class="special">{{ session_data.title }}</h1>
 
   {%- if session_data.part -%}
-    <div>Part {{ session_data.part }}</div>
+    <div>{{ session_data.part }}</div>
   {%- endif -%}
 
   {%- include segment/nav.html segment=session_data.segment -%}
@@ -29,7 +29,7 @@
           {{ _info.sequence | default: _info.icon }}
         </span>
       {%- elsif _info.url -%}
-        <a class="lesson-number {{_mso}}" href="/session/{{ _info.url }}">
+        <a class="lesson-number {{_mso}}" href="/{{ site.data.course.session_path | default: "session" }}/{{ _info.url }}">
           {{ _info.sequence | default: _info.icon }}
         </a>
       {%- else -%}

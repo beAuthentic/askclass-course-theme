@@ -16,7 +16,7 @@
     <span>{{ indicator }}</span>
     <span class="{{ symbols }}">navigate_{{ arrow }}</span>
   </div>
-  <a href="/session/{{ _p.url }}">
+  <a href="/{{ site.data.course.session_path | default: "session" }}/{{ _p.url }}">
     {%- if _p.header -%}
       {{ _p.header }} &bull;&nbsp;
     {%- endif -%}

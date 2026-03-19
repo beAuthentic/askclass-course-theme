@@ -1,4 +1,5 @@
 session_tag: 'Session'
+session_path: 'session'
 
 segments:
   - week-01
